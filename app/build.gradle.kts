@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.pankajscanning"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.pankajscanning"
@@ -69,4 +69,8 @@ dependencies {
 
     //pager
     implementation ("com.google.accompanist:accompanist-pager:0.12.0")
+    // Icons
+//    implementation("androidx.compose.material:material:1.5.4")
+    implementation("androidx.compose.material:material-icons-extended:1.5.4")
+
 }

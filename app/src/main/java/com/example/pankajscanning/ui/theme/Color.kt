@@ -27,18 +27,18 @@ private val White = Color(0xFFFFFFFF)
 private val WhiteGrey = Color(0xFFEBEBEF)
 private val LineDark = Color(0xFFEAEAEA)
 
-internal val DarkColorScheme1 = darkColorScheme(
-    primary = Dark,
-    secondary = Soft,
-    background = Dark,
-    surface = Dark
-)
+//internal val DarkColorScheme1 = darkColorScheme(
+//    primary = Dark,
+//    secondary = Soft,
+//    background = Dark,
+//    surface = Dark
+//)
 
 
 
 
 @Immutable
-data class CinemaxColors(
+data class PankajScanningColors(
     val default: Color = Color.Unspecified,
     val primaryDark: Color = Dark,
     val primarySoft: Color = Soft,
@@ -55,4 +55,4 @@ data class CinemaxColors(
 )
 
 
-internal val LocalCinemaxColors = staticCompositionLocalOf { CinemaxColors() }
+internal val LocalPankajScanningColor = staticCompositionLocalOf { PankajScanningColors() }

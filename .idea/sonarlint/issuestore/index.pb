@@ -9,3 +9,9 @@ l
 <app/src/main/java/com/example/pankajscanning/paging/Pager.kt,2\e\2e47994eb6493f55050020546057cffadc16fefb
 n
 >app/src/main/java/com/example/pankajscanning/ui/theme/Theme.kt,f\8\f8a35d4c90aadacabaf7bb773aef033b51d8ae07
+A
+gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+D
+app/build.gradle.kts,d\2\d2a4383452aad84a18429a5844d31330a012a9e6

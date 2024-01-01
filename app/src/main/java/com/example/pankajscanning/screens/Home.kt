@@ -2,6 +2,7 @@ package com.example.pankajscanning.screens
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -58,8 +59,9 @@ internal fun HomeScreen() {
         }
     }
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().background(Color.Black),
         horizontalAlignment = Alignment.CenterHorizontally
+
     ) {
         Box(
             modifier = Modifier.wrapContentSize()
@@ -76,7 +78,7 @@ internal fun HomeScreen() {
                         .height(250.dp)
                         .padding(5.dp),
 //                        .clip(shape = RoundedCornerShape(16.dp))
-                    elevation = CardDefaults.cardElevation(4.dp),
+                    elevation = CardDefaults.cardElevation(5.dp),
                 ) {
                     Image(
                         painter = painterResource(id = images[currentpage]),
@@ -140,7 +142,6 @@ internal fun HomeScreen() {
 fun HomeScreenPreview() {
     HomeScreen()
 }
-
 
 
 

@@ -2,19 +2,13 @@ package com.example.pankajscanning.ui.theme
 
 import android.app.Activity
 import android.os.Build
-import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.ripple.LocalRippleTheme
-import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ProvideTextStyle
-import androidx.compose.material3.Shapes
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
@@ -28,9 +22,13 @@ private val DarkColorScheme = darkColorScheme(
 //    secondary = PurpleGrey80,
 //    tertiary = Pink80,
 
-    primary = Color.Black,
-    secondary = Color.Black,
-    tertiary = Color.Black
+//    primary = Color.Black,
+//    secondary = Color.Black,
+//    tertiary = Color.Black
+
+
+    primary = Color(0xFF000000), // Custom primary color
+    secondary = Color(0xFF020202), // Custom secondary color
 
 )
 
@@ -83,10 +81,10 @@ fun PankajScanningTheme(
 }
 
 
-object PankajScanningTheme{
+object PankajScanningTheme {
     val colors: PankajScanningColors
-    @Composable
-    @ReadOnlyComposable
-    get() = LocalPankajScanningColor.current
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalPankajScanningColor.current
 
 }

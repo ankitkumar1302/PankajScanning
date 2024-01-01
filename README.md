@@ -26,7 +26,6 @@ Pankaj Scanning is designed to streamline development and reduce the likelihood 
 If you have any feature requests or bug reports, please log them on our [issue tracker](#).
 
 Please report security issues directly to admin@pankajscanning.com.
-
 ## License
 The Pankaj Scanning code is released under the Apache v2 license.
 

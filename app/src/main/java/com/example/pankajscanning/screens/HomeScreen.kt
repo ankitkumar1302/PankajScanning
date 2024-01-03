@@ -39,8 +39,8 @@ import kotlinx.coroutines.launch
 
 
 @OptIn(ExperimentalPagerApi::class)
-@Composable
-internal fun HomeScreen() {
+@Composable()
+fun HomeScreen() {
     val images = listOf(
         R.drawable.image1,
         R.drawable.image2,
@@ -59,7 +59,9 @@ internal fun HomeScreen() {
         }
     }
     Column(
-        modifier = Modifier.fillMaxSize().background(Color.Black),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White),
         horizontalAlignment = Alignment.CenterHorizontally
 
     ) {
@@ -140,7 +142,7 @@ internal fun HomeScreen() {
 @Composable
 @Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
 fun HomeScreenPreview() {
-    HomeScreen()
+//    HomeScreen()
 }
 
 

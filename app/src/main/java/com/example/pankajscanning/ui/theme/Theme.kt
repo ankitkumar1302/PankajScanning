@@ -29,6 +29,7 @@ private val DarkColorScheme = darkColorScheme(
 
     primary = Color(0xFF000000), // Custom primary color
     secondary = Color(0xFF020202), // Custom secondary color
+    tertiary = Color(0xFF1E2023), // Custom tertiary color
 
 )
 
@@ -78,13 +79,4 @@ fun PankajScanningTheme(
         typography = Typography,
         content = content
     )
-}
-
-
-object PankajScanningTheme {
-    val colors: PankajScanningColors
-        @Composable
-        @ReadOnlyComposable
-        get() = LocalPankajScanningColor.current
-
 }

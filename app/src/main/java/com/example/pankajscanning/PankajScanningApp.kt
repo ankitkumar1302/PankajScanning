@@ -1,0 +1,108 @@
+package com.example.pankajscanning
+
+import android.annotation.SuppressLint
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Surface
+import androidx.compose.material3.DrawerValue
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ModalNavigationDrawer
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.rememberDrawerState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavDestination
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import com.example.pankajscanning.screens.HomeTopBar
+import com.example.pankajscanning.ui.theme.PankajScanningTheme
+import com.example.pankajscanning.viewmodel.DrawerLayout
+import kotlinx.coroutines.launch
+
+@Composable
+fun PankajScanningApp() {
+    PankajScanningTheme {
+        Surface(modifier = Modifier.fillMaxSize()) {
+            AppContent()
+        }
+    }
+}
+
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalAnimationApi::class)
+@Composable
+fun AppContent() {
+    val navController = rememberNavController()
+    val routes = listOf(
+        Screen.Home,
+        Screen.MySubscriptions,
+        Screen.MyOrders,
+        Screen.ReportAnIssue,
+        Screen.Wallet,
+        Screen.Faq,
+        Screen.Settings,
+        Screen.Wellness
+    )
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentDestination = navBackStackEntry?.destination
+    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    val scope = rememberCoroutineScope()
+    var isScrolling by remember { mutableStateOf(true) }
+
+    ModalNavigationDrawer(
+        gesturesEnabled = true,
+        drawerState = drawerState,
+        drawerContent = {
+            DrawerLayout(
+                userName = "Ankit",
+                resume = "Android Developer",
+                avatarModel = R.drawable.logo.toString(),
+                routes = routes,
+                navController = navController,
+                currentDestination = currentDestination,
+                onCloseDrawer = { scope.launch { drawerState.close() } }
+            )
+        },
+        content = {
+            Scaffold(
+                modifier = Modifier.fillMaxSize(),
+                topBar = {
+                    HomeTopBar(
+                        onOpenCart = { navController.navigate(Screen.CartScreen.route) },
+                        onOpenDrawer = { scope.launch { drawerState.open() } })
+                },
+
+            ) {}
+        },
+    )
+
+}
+
+fun isVisible(
+    currentRoute: String?,
+    isScrolling: Boolean
+): Boolean {
+    val fullScreens = listOf(Screen.Settings, Screen.Search)
+
+    return if (fullScreens.any { currentRoute?.startsWith(it.route) == true }) {
+        false
+    } else {
+        isScrolling
+    }
+}
+
+
+@Preview
+@Composable
+fun DefaultPreview() {
+    PankajScanningApp()
+}

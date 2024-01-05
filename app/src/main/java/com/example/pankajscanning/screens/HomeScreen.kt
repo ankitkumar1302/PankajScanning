@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -40,7 +41,7 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable()
-fun HomeScreen() {
+fun HomeScreen(innerPadding: PaddingValues) {
     val images = listOf(
         R.drawable.image1,
         R.drawable.image2,
@@ -142,7 +143,7 @@ fun HomeScreen() {
 @Composable
 @Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
 fun HomeScreenPreview() {
-//    HomeScreen()
+    HomeScreen(innerPadding = PaddingValues())
 }
 
 

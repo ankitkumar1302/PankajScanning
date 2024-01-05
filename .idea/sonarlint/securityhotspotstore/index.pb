@@ -51,3 +51,7 @@ q
 Aapp/src/main/java/com/example/pankajscanning/screens/FaqScreen.kt,8\b\8b6474e6f4ac08bbb0cf80c4f83a6263e5e053ec
 t
 Dapp/src/main/java/com/example/pankajscanning/screens/WalletScreen.kt,6\2\62de3d107e652fc508749970d3d7da5c0eb6b07d
+v
+Fapp/src/main/java/com/example/pankajscanning/viewmodel/SearchAppBar.kt,e\e\ee7cd182df3ff4b3c13915ecf0ea27da592a4fce
+t
+Dapp/src/main/java/com/example/pankajscanning/viewmodel/HomeTopBar.kt,f\d\fd4cbed7dbbad04b7dd15bf00b903236705ea49e

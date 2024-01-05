@@ -19,6 +19,7 @@ import com.example.pankajscanning.screens.ReportAnIssueScreen
 import com.example.pankajscanning.screens.SearchScreen
 import com.example.pankajscanning.screens.SettingsScreen
 import com.example.pankajscanning.screens.WalletScreen
+import com.example.pankajscanning.screens.WellnessScreen
 
 @Composable
 fun NavHostApp(
@@ -29,17 +30,16 @@ fun NavHostApp(
 //    onShowBottomSheet: () -> Unit,
 //    onRepost: () -> Unit,
 //    onScrollStateChange: (Boolean) -> Unit
-
 ) {
     NavHost(
-        modifier = Modifier,
+        modifier = modifier,
         navController = navController,
         startDestination = startDestination,
         enterTransition = { fadeIn() },
         exitTransition = { fadeOut() }
     ) {
         composable(Screen.Home.route) {
-            HomeScreen()
+            HomeScreen(innerPadding = innerPaddings)
         }
         composable(Screen.Search.route) {
             SearchScreen()
@@ -64,6 +64,9 @@ fun NavHostApp(
         }
         composable(Screen.Wallet.route) {
             WalletScreen()
+        }
+        composable(Screen.Wellness.route) {
+            WellnessScreen()
         }
     }
 }

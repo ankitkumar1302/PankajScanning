@@ -2,8 +2,8 @@ package com.example.pankajscanning
 
 import android.annotation.SuppressLint
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Surface
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -17,15 +17,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavDestination
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.pankajscanning.screens.HomeTopBar
 import com.example.pankajscanning.ui.theme.PankajScanningTheme
 import com.example.pankajscanning.viewmodel.DrawerLayout
+import com.example.pankajscanning.viewmodel.HomeTopBar
 import kotlinx.coroutines.launch
 
 @Composable
@@ -43,7 +40,6 @@ fun PankajScanningApp() {
 fun AppContent() {
     val navController = rememberNavController()
     val routes = listOf(
-        Screen.Home,
         Screen.MySubscriptions,
         Screen.MyOrders,
         Screen.ReportAnIssue,
@@ -54,6 +50,7 @@ fun AppContent() {
     )
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
+    val currentRoute = navBackStackEntry?.destination?.route
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
     var isScrolling by remember { mutableStateOf(true) }
@@ -78,13 +75,23 @@ fun AppContent() {
                 topBar = {
                     HomeTopBar(
                         onOpenCart = { navController.navigate(Screen.CartScreen.route) },
-                        onOpenDrawer = { scope.launch { drawerState.open() } })
+                        onOpenDrawer = {
+                            scope.launch { drawerState.open() }
+                        })
                 },
+                bottomBar = {
+//                    BottomNavigation(navController)
+                }
 
-            ) {}
+            ) { innerPadding ->
+                NavHostApp(
+                    modifier = Modifier.padding(innerPadding),
+                    navController = navController,
+                    innerPaddings = innerPadding
+                )
+            }
         },
     )
-
 }
 
 fun isVisible(
@@ -101,7 +108,7 @@ fun isVisible(
 }
 
 
-@Preview
+@Preview()
 @Composable
 fun DefaultPreview() {
     PankajScanningApp()

@@ -41,9 +41,7 @@ fun SearchAppBar(
         },
         actions = {
             IconButton(onClick = { onSearch() }) {
-
                 Icon(Icons.Filled.Search, contentDescription = "Search")
-
             }
         }
     )

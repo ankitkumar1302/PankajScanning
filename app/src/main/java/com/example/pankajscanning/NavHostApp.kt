@@ -21,6 +21,7 @@ import com.example.pankajscanning.screens.SettingsScreen
 import com.example.pankajscanning.screens.WalletScreen
 import com.example.pankajscanning.screens.WellnessScreen
 
+
 @Composable
 fun NavHostApp(
     modifier: Modifier,
@@ -90,6 +91,5 @@ sealed class Screen(
     object Search : Screen("search", R.string.search, R.drawable.ic_search)
     object CartScreen : Screen("cart", R.string.cart, R.drawable.ic_cart)
     object Wallet : Screen("wallet", R.string.wallet, R.drawable.ic_wallet)
-
-
 }
+

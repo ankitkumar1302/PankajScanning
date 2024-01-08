@@ -16,6 +16,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -44,5 +45,14 @@ fun SearchAppBar(
                 Icon(Icons.Filled.Search, contentDescription = "Search")
             }
         }
+    )
+}
+
+@Preview
+@Composable
+fun default() {
+    SearchAppBar(
+        onQueryChange = { newQuery -> println("Query changed: $newQuery") },
+        onSearch = { println("Search action performed") }
     )
 }

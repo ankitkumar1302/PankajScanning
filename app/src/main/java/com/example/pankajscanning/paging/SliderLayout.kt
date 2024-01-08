@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.example.pankajscanning.screens
+package com.example.pankajscanning.paging
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
@@ -23,7 +23,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.KeyboardArrowRight
-import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -40,13 +39,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pankajscanning.R
+import com.example.pankajscanning.screens.lerp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.absoluteValue
 
+
 @OptIn(ExperimentalFoundationApi::class)
-@Composable()
-fun HomeScreen(innerPadding: PaddingValues) {
+
+@Composable
+fun ViewPagerSlider(innerPadding: PaddingValues) {
     val images = listOf(
         R.drawable.image1,
         R.drawable.image2,
@@ -54,7 +56,6 @@ fun HomeScreen(innerPadding: PaddingValues) {
         R.drawable.image5,
         R.drawable.image6,
     )
-//    val pagerState = rememberPagerState(images.size)
     val pagerState = rememberPagerState(
         initialPage = 0,
         initialPageOffsetFraction = 0f
@@ -66,8 +67,7 @@ fun HomeScreen(innerPadding: PaddingValues) {
         while (true) {
             delay(5000)
             val nextPage = (pagerState.currentPage + 1) % pagerState.pageCount
-            pagerState.animateScrollToPage(nextPage)
-//            pagerState.scrollToPage(nextPage)
+            pagerState.scrollToPage(nextPage)
         }
     }
     Column(
@@ -87,7 +87,7 @@ fun HomeScreen(innerPadding: PaddingValues) {
                 contentPadding = PaddingValues(horizontal = 25.dp),
                 state = pagerState,
             ) { currentPage ->
-                Card(
+                androidx.compose.material3.Card(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(195.dp)
@@ -180,21 +180,8 @@ fun HomeScreen(innerPadding: PaddingValues) {
 
     }
 }
-
+@Preview
 @Composable
-@Preview()
-fun HomeScreenPreview() {
-    HomeScreen(innerPadding = PaddingValues())
+fun PreviewViewPagerSlider() {
+    ViewPagerSlider(innerPadding = PaddingValues(0.dp))
 }
-
-
-fun lerp(start: Float, stop: Float, fraction: Float): Float {
-    return (1 - fraction) * start + fraction * stop
-}
-
-
-
-
-
-
-

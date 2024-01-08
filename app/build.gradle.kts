@@ -70,12 +70,16 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     //pager
-    implementation ("com.google.accompanist:accompanist-pager:0.12.0")
+//    implementation ("com.google.accompanist:accompanist-pager:0.12.0")
     // Icons
 //    implementation("androidx.compose.material:material:1.5.4")
     implementation("androidx.compose.material:material-icons-extended:1.5.4")
     implementation ("androidx.compose.material:material:1.5.4")
     implementation("io.coil-kt:coil-compose:2.5.0")
 
-
+//    implementation("com.google.accompanist:accompanist-pager:0.30.1")
+//    implementation("com.github.commandiron:ExpandableHorizontalPagerCompose:1.0.11")
+    implementation("androidx.compose.foundation:foundation:1.5.4")
 }
+
+

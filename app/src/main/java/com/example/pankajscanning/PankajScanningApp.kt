@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.pankajscanning.ui.theme.PankajScanningTheme
+import com.example.pankajscanning.viewmodel.BottomNavigation
 import com.example.pankajscanning.viewmodel.DrawerLayout
 import com.example.pankajscanning.viewmodel.HomeTopBar
 import kotlinx.coroutines.launch
@@ -45,6 +46,12 @@ fun AppContent() {
         Screen.ReportAnIssue,
         Screen.Wallet,
         Screen.Faq,
+        Screen.Settings,
+        Screen.Wellness
+    )
+    val bottomNav = listOf(
+        Screen.Home,
+        Screen.Wallet,
         Screen.Settings,
         Screen.Wellness
     )
@@ -80,7 +87,7 @@ fun AppContent() {
                         })
                 },
                 bottomBar = {
-//                    BottomNavigation(navController)
+                    BottomNavigation(screens = bottomNav)
                 }
 
             ) { innerPadding ->
@@ -110,6 +117,6 @@ fun isVisible(
 
 @Preview()
 @Composable
-fun DefaultPreview() {
+fun DPreview() {
     PankajScanningApp()
 }

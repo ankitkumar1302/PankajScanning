@@ -1,4 +1,4 @@
-package com.example.pankajscanning.viewmodel
+package com.example.pankajscanning.views
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image

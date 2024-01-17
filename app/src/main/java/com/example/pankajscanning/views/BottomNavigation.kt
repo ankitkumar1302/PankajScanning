@@ -1,4 +1,4 @@
-package com.example.pankajscanning.viewmodel
+package com.example.pankajscanning.views
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi

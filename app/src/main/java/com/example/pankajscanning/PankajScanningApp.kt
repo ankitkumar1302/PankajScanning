@@ -21,9 +21,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.pankajscanning.ui.theme.PankajScanningTheme
-import com.example.pankajscanning.viewmodel.BottomNavigation
-import com.example.pankajscanning.viewmodel.DrawerLayout
-import com.example.pankajscanning.viewmodel.HomeTopBar
+import com.example.pankajscanning.views.BottomNavigation
+import com.example.pankajscanning.views.DrawerLayout
+import com.example.pankajscanning.views.HomeTopBar
 import kotlinx.coroutines.launch
 
 @Composable

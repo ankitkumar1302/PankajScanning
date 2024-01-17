@@ -1,5 +1,3 @@
-@file:Suppress("DEPRECATION")
-
 package com.example.pankajscanning.screens
 
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -54,7 +52,7 @@ fun HomeScreen(innerPadding: PaddingValues) {
         R.drawable.image5,
         R.drawable.image6,
     )
-//    val pagerState = rememberPagerState(images.size)
+    /* val pagerState = rememberPagerState(images.size) */
     val pagerState = rememberPagerState(
         initialPage = 0,
         initialPageOffsetFraction = 0f
@@ -67,7 +65,7 @@ fun HomeScreen(innerPadding: PaddingValues) {
             delay(5000)
             val nextPage = (pagerState.currentPage + 1) % pagerState.pageCount
             pagerState.animateScrollToPage(nextPage)
-//            pagerState.scrollToPage(nextPage)
+            /* pagerState.scrollToPage(nextPage) */
         }
     }
     Column(
@@ -142,7 +140,6 @@ fun HomeScreen(innerPadding: PaddingValues) {
                             pagerState.scrollToPage(prevPage)
                         }
                     }
-
                 },
                 modifier = Modifier
                     .padding(30.dp)

@@ -183,7 +183,7 @@ fun DrawerLayout(
                             launchSingleTop = true
                             restoreState = true
                         }
-//                        this@DrawerLayout()
+                       onCloseDrawer()
                     },
                     colors = NavigationDrawerItemDefaults.colors(
                         selectedBadgeColor = Color(0xFFE80303),

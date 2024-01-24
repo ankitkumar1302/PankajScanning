@@ -87,7 +87,7 @@ sealed class Screen(
     object ReportAnIssue :
         Screen("report_an_issue", R.string.report_an_issue, R.drawable.ic_report_an_issue)
 
-    object Faq : Screen("faq", R.string.faq, R.drawable.baseline_question_answer_24)
+    object Faq : Screen("faq", R.string.faq, R.drawable.ic_faq)
     object Search : Screen("search", R.string.search, R.drawable.ic_search)
     object CartScreen : Screen("cart", R.string.cart, R.drawable.ic_cart)
     object Wallet : Screen("wallet", R.string.wallet, R.drawable.ic_wallet)

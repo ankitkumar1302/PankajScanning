@@ -18,6 +18,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.pankajscanning.ui.theme.PankajScanningTheme
@@ -81,7 +82,13 @@ fun AppContent() {
                 modifier = Modifier.fillMaxSize(),
                 topBar = {
                     HomeTopBar(
-                        onOpenCart = { navController.navigate(Screen.CartScreen.route) },
+                        onOpenCart = {
+                            navController.navigate(Screen.CartScreen.route) {
+                                popUpTo(navController.graph.findStartDestination().id) {
+                                    saveState = true
+                                }
+                            }
+                        },
                         onOpenDrawer = {
                             scope.launch { drawerState.open() }
                         })

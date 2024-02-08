@@ -42,6 +42,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pankajscanning.R
+import com.example.pankajscanning.models.sliderImages
 import com.example.pankajscanning.ui.theme.Typography
 import com.example.pankajscanning.views.Services
 import kotlinx.coroutines.delay
@@ -50,20 +51,13 @@ import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable()
-fun HomeScreen(innerPadding: PaddingValues) {
-    val images = listOf(
-        R.drawable.image1,
-        R.drawable.image2,
-        R.drawable.image4,
-        R.drawable.image5,
-        R.drawable.image6,
-    )
-    /* val pagerState = rememberPagerState(images.size) */
+fun HomeScreen() {
+    val sliderImagesList = sliderImages
     val pagerState = rememberPagerState(
         initialPage = 0,
         initialPageOffsetFraction = 0f
     ) {
-        images.size
+        sliderImagesList.size
     }
     val scope = rememberCoroutineScope()
     LaunchedEffect(Unit) {
@@ -71,7 +65,6 @@ fun HomeScreen(innerPadding: PaddingValues) {
             delay(5000)
             val nextPage = (pagerState.currentPage + 1) % pagerState.pageCount
             pagerState.animateScrollToPage(nextPage)
-            /* pagerState.scrollToPage(nextPage) */
         }
     }
     Column(
@@ -79,7 +72,6 @@ fun HomeScreen(innerPadding: PaddingValues) {
             .fillMaxSize()
             .background(Color.White),
         horizontalAlignment = Alignment.CenterHorizontally
-
     ) {
         Box(
             modifier = Modifier.wrapContentSize()
@@ -88,9 +80,9 @@ fun HomeScreen(innerPadding: PaddingValues) {
                 modifier = Modifier
                     .padding(top = 15.dp, bottom = 15.dp)
                     .wrapContentSize(),
-                contentPadding = PaddingValues(horizontal = 25.dp),
                 state = pagerState,
-            ) { currentPage ->
+                contentPadding = PaddingValues(horizontal = 20.dp),
+            ) { page ->
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -98,7 +90,7 @@ fun HomeScreen(innerPadding: PaddingValues) {
                         .padding(5.dp)
                         .graphicsLayer {
                             val pageOffset = (
-                                    (pagerState.currentPage - currentPage) + pagerState
+                                    (pagerState.currentPage - page) + pagerState
                                         .currentPageOffsetFraction
                                     ).absoluteValue
                             alpha = lerp(
@@ -110,7 +102,8 @@ fun HomeScreen(innerPadding: PaddingValues) {
                     elevation = CardDefaults.cardElevation(5.dp),
                 ) {
                     Image(
-                        painter = painterResource(id = images[currentPage]),
+//                        painter = painterResource(id = images[page]),
+                        painter = painterResource(id = sliderImagesList[page].imageResId),
                         contentDescription = "Images",
                         contentScale = ContentScale.Crop,
                         modifier = Modifier.fillMaxSize()
@@ -120,7 +113,7 @@ fun HomeScreen(innerPadding: PaddingValues) {
             IconButton(
                 onClick = {
                     val nextPage = pagerState.currentPage + 1
-                    if (nextPage < images.size) {
+                    if (nextPage < sliderImagesList.size) {
                         scope.launch {
                             pagerState.scrollToPage(nextPage)
                         }
@@ -195,9 +188,9 @@ fun HomeScreen(innerPadding: PaddingValues) {
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
-                .padding(start = 17.dp, end = 17.dp)
+                .padding(start = 15.dp, end = 17.dp)
         ) {
-           Services {}
+            Services {}
         }
     }
 }
@@ -205,7 +198,7 @@ fun HomeScreen(innerPadding: PaddingValues) {
 @Composable
 @Preview()
 fun HomeScreenPreview() {
-    HomeScreen(innerPadding = PaddingValues())
+    HomeScreen()
 }
 
 

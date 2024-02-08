@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -53,7 +54,7 @@ fun Services(
             Spacer(modifier = Modifier.height(5.dp))
             Text(
                 text = "Pathology",
-                modifier = Modifier.padding(start= 7.dp, bottom = 2.dp),
+                modifier = Modifier.padding(start = 7.dp, bottom = 2.dp),
                 color = Color(0xFF000000),
                 fontSize = 16.sp,
                 overflow = TextOverflow.Ellipsis,
@@ -64,8 +65,31 @@ fun Services(
     }
 }
 
+@Composable
+fun service(onClick: () -> Unit) {
+
+    LazyRow(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(10.dp)
+    ) {
+        item {
+            ServiceCard()
+        }
+
+    }
+
+}
+
+@Composable
+fun ServiceCard() {
+    
+}
+
+
 @Preview
 @Composable
 private fun previewService() {
     Services {}
+
 }

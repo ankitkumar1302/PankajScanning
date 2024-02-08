@@ -40,7 +40,7 @@ fun NavHostApp(
         exitTransition = { fadeOut() }
     ) {
         composable(Screen.Home.route) {
-            HomeScreen(innerPadding = innerPaddings)
+            HomeScreen()
         }
         composable(Screen.Search.route) {
             SearchScreen()

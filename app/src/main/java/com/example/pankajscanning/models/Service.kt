@@ -7,7 +7,7 @@ data class Service(
     val image: Int
 )
 
-val servicesList = listOf<Service>(
+val servicesList = listOf(
     Service("Pathology", R.drawable.pathology),
     Service("Radiology", R.drawable.radiology),
 //    Service("Cardiology", R.drawable.cardiology),

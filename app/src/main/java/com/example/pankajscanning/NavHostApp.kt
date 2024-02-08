@@ -80,7 +80,6 @@ sealed class Screen(
     object Home : Screen("home", R.string.home, R.drawable.ic_home_filled)
     object MySubscriptions :
         Screen("my_subscriptions", R.string.my_subscriptions, R.drawable.ic_subscriptions)
-
     object MyOrders : Screen("my_orders", R.string.my_orders, R.drawable.ic_order)
     object Wellness : Screen("wellness", R.string.wellness, R.drawable.ic_wellness)
     object Settings : Screen("settings", R.string.settings, R.drawable.ic_settings)

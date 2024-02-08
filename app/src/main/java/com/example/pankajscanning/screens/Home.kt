@@ -44,7 +44,7 @@ import androidx.compose.ui.unit.sp
 import com.example.pankajscanning.R
 import com.example.pankajscanning.models.sliderImages
 import com.example.pankajscanning.ui.theme.Typography
-import com.example.pankajscanning.views.Services
+import com.example.pankajscanning.views.ServicesList
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.absoluteValue
@@ -183,14 +183,14 @@ fun HomeScreen() {
             style = Typography.titleLarge,
         )
         Spacer(modifier = Modifier.height(10.dp))
-
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
-                .padding(start = 15.dp, end = 17.dp)
+
+
         ) {
-            Services {}
+            ServicesList(onClick = {})
         }
     }
 }

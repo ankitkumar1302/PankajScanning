@@ -187,8 +187,6 @@ fun HomeScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
-
-
         ) {
             ServicesList(onClick = {})
         }

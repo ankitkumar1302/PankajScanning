@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -34,15 +35,15 @@ import com.example.pankajscanning.ui.theme.Typography
 fun ServicesList(onClick: () -> Unit) {
     LazyRow(
         modifier = Modifier
-            .padding(),
-        horizontalArrangement = Arrangement.spacedBy(10.dp)
+            .padding().clickable {},
+        horizontalArrangement = Arrangement.spacedBy(10.dp),
+        contentPadding = PaddingValues(horizontal = 10.dp)
     ) {
         items(servicesList) { service ->
             ServiceCard(title = service.title, image = service.image)
         }
     }
 }
-
 @Composable
 fun ServiceCard(title: String, image: Int) {
     Card(
@@ -79,7 +80,7 @@ fun ServiceCard(title: String, image: Int) {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun PreviewService() {
 //    ServiceCard(title = "Pathology", image =R.drawable.pathology)

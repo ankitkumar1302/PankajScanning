@@ -7,15 +7,13 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.DensityMedium
+import androidx.compose.material.icons.filled.Dehaze
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -24,8 +22,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.pankajscanning.R
 import com.example.pankajscanning.ui.theme.Typography
 import com.example.pankajscanning.ui.theme.background
 import com.example.pankajscanning.ui.theme.onBackground
@@ -59,11 +60,14 @@ fun HomeTopBar(
                     indication = rememberRipple(bounded = false)
                 ) { onOpenDrawer() },
         ) {
+
             Icon(
-                imageVector = Icons.Filled.DensityMedium, contentDescription = "",
+                painterResource(id = R.drawable.ic_menu),
+//                imageVector = Icons.Filled.,
+                contentDescription = "Menu",
                 Modifier
                     .align(Alignment.Center)
-                    .requiredSize(30.dp),
+                    .requiredSize(35.dp),
                 tint = primaryTextColor
             )
 //            Image(
@@ -73,7 +77,7 @@ fun HomeTopBar(
 //                    .requiredSize(44.dp),
 //                Icon(imageVector = Icons.Filled.DensityMedium, contentDescription = "Menu" ),
 //                contentDescription = null,
-////                contentScale = ContentScale.Crop
+//                contentScale = ContentScale.Crop
 //            )
 //            AsyncImage(
 //                modifier = Modifier
@@ -95,7 +99,7 @@ fun HomeTopBar(
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
 
-            Spacer(modifier = Modifier.width(8.dp))
+//            Spacer(modifier = Modifier.width(8.dp))
 
 //            Icon(
 //                modifier = Modifier
@@ -106,11 +110,13 @@ fun HomeTopBar(
 //            )
 //
             Text(
-                text = "Pankaj Scanning & Pathology\n" +
+                text = "Pankaj Scanning & " +
+                        "Pathology " +
                         "Research Center",
                 fontSize = Typography.bodyLarge.fontSize,
                 fontWeight = Typography.bodyLarge.fontWeight,
-                color = secondaryTextColor
+                color = secondaryTextColor, textAlign = TextAlign.Center,
+                modifier = Modifier.padding(horizontal = 4.dp)
             )
         }
         Box(

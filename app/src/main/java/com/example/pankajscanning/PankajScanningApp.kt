@@ -52,9 +52,9 @@ fun AppContent() {
     )
     val bottomNav = listOf(
         Screen.Home,
-        Screen.Wallet,
-        Screen.Settings,
-        Screen.Wellness
+        Screen.Search,
+        Screen.Wellness,
+        Screen.Settings
     )
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination

@@ -35,7 +35,7 @@ import com.example.pankajscanning.ui.theme.Typography
 fun ServicesList(onClick: () -> Unit) {
     LazyRow(
         modifier = Modifier
-            .padding().clickable {},
+            .padding(),
         horizontalArrangement = Arrangement.spacedBy(10.dp),
         contentPadding = PaddingValues(horizontal = 10.dp)
     ) {

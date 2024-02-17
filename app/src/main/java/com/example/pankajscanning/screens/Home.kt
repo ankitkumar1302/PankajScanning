@@ -81,7 +81,7 @@ fun HomeScreen() {
                     .padding(top = 15.dp, bottom = 15.dp)
                     .wrapContentSize(),
                 state = pagerState,
-                contentPadding = PaddingValues(horizontal = 20.dp),
+                contentPadding = PaddingValues(horizontal = 17.dp),
             ) { page ->
                 Card(
                     modifier = Modifier

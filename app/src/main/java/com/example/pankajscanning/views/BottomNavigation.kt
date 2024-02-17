@@ -94,7 +94,6 @@ private fun BottomNavItem(
     isSelected: Boolean,
 
 ) {
-
     val animatedHeight by animateDpAsState(
         targetValue = if (isSelected) 36.dp else 26.dp,
         label = ""

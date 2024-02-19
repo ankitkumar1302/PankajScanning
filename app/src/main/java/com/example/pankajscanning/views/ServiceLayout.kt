@@ -20,7 +20,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -44,6 +43,7 @@ fun ServicesList(onClick: () -> Unit) {
         }
     }
 }
+
 @Composable
 fun ServiceCard(title: String, image: Int) {
     Card(
@@ -70,11 +70,17 @@ fun ServiceCard(title: String, image: Int) {
             Text(
                 text = title,
                 modifier = Modifier.padding(start = 7.dp, bottom = 2.dp),
-                color = Color(0xFF000000),
+                color = Color.Black,
                 fontSize = 16.sp,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
                 style = Typography.titleMedium
+
+                /*
+                TODO: 1. Correct the color of the text.
+                2. Create onclick listener for the card.
+                 */
+
             )
         }
     }

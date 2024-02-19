@@ -1,49 +1,82 @@
 package com.example.pankajscanning.views
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.spring
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.pankajscanning.Screen
 
-@ExperimentalAnimationApi
+@Composable
+fun BottomNavigationBar(
+    items: List<Screen>,
+    navController: NavHostController,
+    onItemClick: (Screen) -> Unit
+) {
+    BottomNavigation(
+        backgroundColor = Color(0xFF181923),
+//        contentColor = Color.White,
+    ) {
+        items.forEach { item ->
+            val isSelected = navController.currentDestination?.hierarchy?.any { it.route == item.route } == true
+            BottomNavigationItem(
+                icon = { Icon(painterResource(id = item.iconId), contentDescription = null) },
+                label = { Text(text = stringResource(id = item.resourceId)) },
+                alwaysShowLabel = true,
+                selected = isSelected,
+                onClick = {
+                    navController.navigate(item.route) {
+                        popUpTo(navController.graph.findStartDestination().id) {
+                            saveState = true
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                    onItemClick(item)
+                },
+                selectedContentColor = Color(0xFFE0E0E0),
+                unselectedContentColor = Color.White.copy(0.4f),
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewBottomBar() {
+    BottomNavigationBar(
+        items = listOf(
+            Screen.Home,
+            Screen.Search,
+            Screen.Wellness,
+            Screen.Settings
+        ),
+        navController = rememberNavController(),
+        onItemClick = {}
+    )
+}
+
+
+// This is an animated bottom navigation
+
+/* @ExperimentalAnimationApi
 @Composable
 fun BottomNavigation(
-    screens: List<Screen>
+    screens: List<Screen>,
+//    navigate: (Screen) -> Unit
 ) {
     var selectedScreen by remember { mutableStateOf(0) }
     Box(
@@ -75,9 +108,15 @@ fun BottomNavigation(
                                 indication = null
                             ) {
                                 selectedScreen = screens.indexOf(item)
+//                                navigate(item)
+
                             },
                         item = item,
-                        isSelected = isSelected
+                        isSelected = isSelected,
+                        onClick = {
+                            selectedScreen = screens.indexOf(item)
+                            navigate(item)
+                        }
                     )
                 }
             }
@@ -92,8 +131,11 @@ private fun BottomNavItem(
     modifier: Modifier = Modifier,
     item: Screen,
     isSelected: Boolean,
-
+    onClick: () -> Unit ={
+        //TODO
+    }
 ) {
+
     val animatedHeight by animateDpAsState(
         targetValue = if (isSelected) 36.dp else 26.dp,
         label = ""
@@ -191,5 +233,7 @@ fun FlipIcon(
 @Preview
 @Composable
 fun DefaultBottomNav() {
-    BottomNavigation(listOf(Screen.Home,Screen.Search,Screen.Wellness,Screen.Settings))
+    //BottomNavigation(listOf(Screen.Home,Screen.Search,Screen.Wellness,Screen.Settings))
 }
+
+ */

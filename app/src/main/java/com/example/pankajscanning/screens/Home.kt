@@ -67,10 +67,10 @@ fun HomeScreen() {
             pagerState.animateScrollToPage(nextPage)
         }
     }
-    Column(
+        Column(
         modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White),
+            .fillMaxSize(),
+//            .background(Color.White),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(

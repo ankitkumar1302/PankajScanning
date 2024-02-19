@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Dehaze
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -43,7 +42,7 @@ fun HomeTopBar(
 ) {
     Row(
         modifier = Modifier
-            .background(background, RoundedCornerShape(bottomEnd = 16.dp, bottomStart = 16.dp))
+            .background(background)
             .padding(8.dp)
             .fillMaxWidth()
             .height(56.dp),

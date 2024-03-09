@@ -47,10 +47,11 @@ import com.example.pankajscanning.ui.theme.Typography
 import com.example.pankajscanning.views.ServicesList
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import okio.blackholeSink
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalFoundationApi::class)
-@Composable()
+@Composable
 fun HomeScreen() {
     val sliderImagesList = sliderImages
     val pagerState = rememberPagerState(
@@ -69,7 +70,7 @@ fun HomeScreen() {
     }
         Column(
         modifier = Modifier
-            .fillMaxSize(),
+            .fillMaxSize().background(Color(0xFF201E2C)),
 //            .background(Color.White),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -163,7 +164,7 @@ fun HomeScreen() {
         ) {
             repeat(pagerState.pageCount) { iteration ->
                 val color =
-                    if (pagerState.currentPage == iteration) Color.DarkGray else Color.LightGray
+                    if (pagerState.currentPage == iteration) Color(0xFF12CDD9) else Color(0xFF195360)
                 Box(
                     modifier = Modifier
                         .padding(2.dp)
@@ -178,9 +179,9 @@ fun HomeScreen() {
             modifier = Modifier
                 .align(Alignment.Start)
                 .padding(start = 17.dp, top = 10.dp),
-
             fontSize = 20.sp,
             style = Typography.titleLarge,
+            color = Color.White
         )
         Spacer(modifier = Modifier.height(10.dp))
         Box(
@@ -194,7 +195,7 @@ fun HomeScreen() {
 }
 
 @Composable
-@Preview()
+@Preview
 fun HomeScreenPreview() {
     HomeScreen()
 }

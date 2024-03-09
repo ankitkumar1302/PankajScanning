@@ -90,5 +90,7 @@ sealed class Screen(
     object Search : Screen("search", R.string.search, R.drawable.ic_search)
     object CartScreen : Screen("cart", R.string.cart, R.drawable.ic_cart)
     object Wallet : Screen("wallet", R.string.wallet, R.drawable.ic_wallet)
+
+    // TODO -> add map icon here.
 }
 

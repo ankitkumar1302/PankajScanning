@@ -53,7 +53,7 @@ fun ServiceCard(title: String, image: Int) {
             .clickable { },
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFFE6DBDB),
+            containerColor = Color(0xFF252836),
             contentColor = Color(0xFF000000)
         ),
         elevation = CardDefaults.cardElevation(5.dp),
@@ -70,15 +70,16 @@ fun ServiceCard(title: String, image: Int) {
             Text(
                 text = title,
                 modifier = Modifier.padding(start = 7.dp, bottom = 2.dp),
-                color = Color.Black,
+                color = Color.White,
                 fontSize = 16.sp,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
                 style = Typography.titleMedium
-
                 /*
-                TODO: 1. Correct the color of the text.
-                2. Create onclick listener for the card.
+                 TODO -> Create onClick for each services and navigate to the respective screen.
+                 TODO -> Create splash screen and Login/Register screen.
+                 TODO ->  Create map screen where user can watch the location of the lab.
+                 TODO -> Create a screen where user can see the list of all the tests.
                  */
 
             )

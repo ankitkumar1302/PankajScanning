@@ -30,6 +30,7 @@ import com.example.pankajscanning.ui.theme.Typography
 import com.example.pankajscanning.ui.theme.background
 import com.example.pankajscanning.ui.theme.onBackground
 import com.example.pankajscanning.ui.theme.primaryTextColor
+import com.example.pankajscanning.ui.theme.secondaryBackground
 import com.example.pankajscanning.ui.theme.secondaryTextColor
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -42,7 +43,7 @@ fun HomeTopBar(
 ) {
     Row(
         modifier = Modifier
-            .background(background)
+            .background(secondaryBackground)
             .padding(8.dp)
             .fillMaxWidth()
             .height(56.dp),

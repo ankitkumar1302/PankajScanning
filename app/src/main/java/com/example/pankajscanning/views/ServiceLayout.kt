@@ -79,8 +79,6 @@ fun ServiceCard(title: String, image: Int) {
                  TODO -> Create onClick for each services and navigate to the respective screen.
                  TODO -> Create splash screen and Login/Register screen.
                  TODO ->  Create map screen where user can watch the location of the lab.
-                 TODO -> Create a screen where user can see the list of all the tests.
-                 TODO -> add color themes correct which can cordinate with the screen components.
                  */
 
             )

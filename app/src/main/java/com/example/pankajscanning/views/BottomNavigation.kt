@@ -1,24 +1,21 @@
 package com.example.pankajscanning.views
 
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
 import com.example.pankajscanning.Screen
+import com.example.pankajscanning.ui.theme.secondaryBackground
+
 
 @Composable
 fun BottomNavigationBar(
@@ -27,11 +24,12 @@ fun BottomNavigationBar(
     onItemClick: (Screen) -> Unit
 ) {
     BottomNavigation(
-        backgroundColor = Color(0xFF181923),
+        backgroundColor = secondaryBackground,
 //        contentColor = Color.White,
     ) {
         items.forEach { item ->
-            val isSelected = navController.currentDestination?.hierarchy?.any { it.route == item.route } == true
+            val isSelected =
+                navController.currentDestination?.hierarchy?.any { it.route == item.route } == true
             BottomNavigationItem(
                 icon = { Icon(painterResource(id = item.iconId), contentDescription = null) },
                 label = { Text(text = stringResource(id = item.resourceId)) },
@@ -132,7 +130,7 @@ private fun BottomNavItem(
     item: Screen,
     isSelected: Boolean,
     onClick: () -> Unit ={
-        //TODO
+
     }
 ) {
 

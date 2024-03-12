@@ -97,7 +97,7 @@ fun AppContent() {
                 {
                     BottomNavigationBar(items = bottomNav, navController = navController) {
                     }
-                }
+                },
             ) { innerPadding ->
                 NavHostApp(
                     modifier = Modifier.padding(innerPadding),
@@ -114,7 +114,6 @@ fun isVisible(
     isScrolling: Boolean
 ): Boolean {
     val fullScreens = listOf(Screen.Settings, Screen.Search)
-
     return if (fullScreens.any { currentRoute?.startsWith(it.route) == true }) {
         false
     } else {

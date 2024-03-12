@@ -40,7 +40,13 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import com.example.pankajscanning.R
 import com.example.pankajscanning.Screen
+import com.example.pankajscanning.ui.theme.Dark
+import com.example.pankajscanning.ui.theme.Soft
 import com.example.pankajscanning.ui.theme.Typography
+import com.example.pankajscanning.ui.theme.White
+import com.example.pankajscanning.ui.theme.background
+import com.example.pankajscanning.ui.theme.onBackground
+import com.example.pankajscanning.ui.theme.secondaryBackground
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -57,7 +63,7 @@ fun DrawerLayout(
 ) {
     ModalDrawerSheet(
         drawerShape = RoundedCornerShape(topEnd = 32.dp, bottomEnd = 32.dp),
-        drawerContainerColor = Color(0xFF1E2023)
+        drawerContainerColor = Dark,
     ) {
         Column(
             Modifier
@@ -98,7 +104,7 @@ fun DrawerLayout(
                             .fillMaxSize()
                             .background(
                                 Brush.linearGradient(
-                                    listOf(Color.Transparent, Color(0xFF1E2023)),
+                                    listOf(Color.Transparent, Dark),
                                     start = Offset(0f, 0f),
                                     end = Offset(0f, pxValueTarget)
                                 ),
@@ -110,7 +116,8 @@ fun DrawerLayout(
                     modifier = Modifier
                         .padding(start = 16.dp)
                         .size(64.dp)
-                        .clip(CircleShape).align(Alignment.BottomStart),
+                        .clip(CircleShape)
+                        .align(Alignment.BottomStart),
                     painter = painterResource(id = R.drawable.logo),
                     contentDescription = null,
 //                    contentScale = ContentScale.Crop,
@@ -183,11 +190,14 @@ fun DrawerLayout(
                             launchSingleTop = true
                             restoreState = true
                         }
-                       onCloseDrawer()
+                        onCloseDrawer()
                     },
                     colors = NavigationDrawerItemDefaults.colors(
-                        selectedBadgeColor = Color(0xFFE80303),
-                        unselectedContainerColor = Color(0xFFFFFFFF)
+                        selectedBadgeColor = White,
+                        unselectedBadgeColor = White.copy(0.5f),
+                        selectedTextColor = White,
+                        unselectedTextColor = Color.White.copy(0.5f),
+                        unselectedContainerColor = onBackground,
                     )
                 )
             }

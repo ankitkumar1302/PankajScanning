@@ -1,5 +1,6 @@
 package com.example.pankajscanning.screens
 
+
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -43,11 +44,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pankajscanning.R
 import com.example.pankajscanning.models.sliderImages
+import com.example.pankajscanning.ui.theme.BlueAccent
+import com.example.pankajscanning.ui.theme.LightBlueAccent
 import com.example.pankajscanning.ui.theme.Typography
+import com.example.pankajscanning.ui.theme.background
 import com.example.pankajscanning.views.ServicesList
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import okio.blackholeSink
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -68,9 +71,9 @@ fun HomeScreen() {
             pagerState.animateScrollToPage(nextPage)
         }
     }
-        Column(
+    Column(
         modifier = Modifier
-            .fillMaxSize().background(Color(0xFF201E2C)),
+            .fillMaxSize().background(background),
 //            .background(Color.White),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -164,7 +167,7 @@ fun HomeScreen() {
         ) {
             repeat(pagerState.pageCount) { iteration ->
                 val color =
-                    if (pagerState.currentPage == iteration) Color(0xFF12CDD9) else Color(0xFF195360)
+                    if (pagerState.currentPage == iteration) BlueAccent else LightBlueAccent
                 Box(
                     modifier = Modifier
                         .padding(2.dp)
@@ -204,10 +207,5 @@ fun HomeScreenPreview() {
 fun lerp(start: Float, stop: Float, fraction: Float): Float {
     return (1 - fraction) * start + fraction * stop
 }
-
-
-
-
-
 
 

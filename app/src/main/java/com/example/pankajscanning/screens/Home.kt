@@ -37,6 +37,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.modifier.modifierLocalMapOf
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -48,6 +49,7 @@ import com.example.pankajscanning.ui.theme.BlueAccent
 import com.example.pankajscanning.ui.theme.LightBlueAccent
 import com.example.pankajscanning.ui.theme.Typography
 import com.example.pankajscanning.ui.theme.background
+import com.example.pankajscanning.views.SearchAppBar
 import com.example.pankajscanning.views.ServicesList
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -73,8 +75,8 @@ fun HomeScreen() {
     }
     Column(
         modifier = Modifier
-            .fillMaxSize().background(background),
-//            .background(Color.White),
+            .fillMaxSize()
+            .background(background),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(

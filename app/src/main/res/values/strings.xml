@@ -29,5 +29,6 @@
     <string name="cart">Cart</string>
     <string name="wallet">Wallet</string>
     <string name="our_services">Our Services</string>
+    <string name="location">Location</string>
 
 </resources>

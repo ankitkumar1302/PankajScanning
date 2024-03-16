@@ -80,7 +80,6 @@ fun ServiceCard(title: String, image: Int) {
                  TODO -> Create splash screen and Login/Register screen.
                  TODO ->  Create map screen where user can watch the location of the lab.
                  */
-
             )
         }
     }
@@ -89,6 +88,5 @@ fun ServiceCard(title: String, image: Int) {
 @Preview(showBackground = true)
 @Composable
 private fun PreviewService() {
-//    ServiceCard(title = "Pathology", image =R.drawable.pathology)
     ServicesList {}
 }

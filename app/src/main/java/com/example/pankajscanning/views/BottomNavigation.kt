@@ -59,8 +59,8 @@ private fun PreviewBottomBar() {
         items = listOf(
             Screen.Home,
             Screen.Search,
-            Screen.Wellness,
-            Screen.Settings
+            Screen.Location,
+            Screen.Profile
         ),
         navController = rememberNavController(),
         onItemClick = {}

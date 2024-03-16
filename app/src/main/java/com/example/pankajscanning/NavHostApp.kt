@@ -13,8 +13,10 @@ import androidx.navigation.compose.composable
 import com.example.pankajscanning.screens.CartScreen
 import com.example.pankajscanning.screens.FaqScreen
 import com.example.pankajscanning.screens.HomeScreen
+import com.example.pankajscanning.screens.LocationScreen
 import com.example.pankajscanning.screens.MyOrdersScreen
 import com.example.pankajscanning.screens.MySubscriptionsScreen
+import com.example.pankajscanning.screens.ProfileScreen
 import com.example.pankajscanning.screens.ReportAnIssueScreen
 import com.example.pankajscanning.screens.SearchScreen
 import com.example.pankajscanning.screens.SettingsScreen
@@ -69,6 +71,12 @@ fun NavHostApp(
         composable(Screen.Wellness.route) {
             WellnessScreen()
         }
+        composable(Screen.Location.route) {
+            LocationScreen()
+        }
+        composable(Screen.Profile.route) {
+            ProfileScreen()
+        }
     }
 }
 
@@ -80,6 +88,7 @@ sealed class Screen(
     object Home : Screen("home", R.string.home, R.drawable.ic_home_filled)
     object MySubscriptions :
         Screen("my_subscriptions", R.string.my_subscriptions, R.drawable.ic_subscriptions)
+
     object MyOrders : Screen("my_orders", R.string.my_orders, R.drawable.ic_order)
     object Wellness : Screen("wellness", R.string.wellness, R.drawable.ic_wellness)
     object Settings : Screen("settings", R.string.settings, R.drawable.ic_settings)
@@ -90,7 +99,7 @@ sealed class Screen(
     object Search : Screen("search", R.string.search, R.drawable.ic_search)
     object CartScreen : Screen("cart", R.string.cart, R.drawable.ic_cart)
     object Wallet : Screen("wallet", R.string.wallet, R.drawable.ic_wallet)
-
-    // TODO -> add map icon here.
+    object Location : Screen("location", R.string.location, R.drawable.ic_location)
+    object Profile : Screen("profile", R.string.profile, R.drawable.ic_profile)
 }
 

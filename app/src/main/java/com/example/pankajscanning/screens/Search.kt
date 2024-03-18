@@ -75,6 +75,7 @@ fun CustomSearch() {
 
 @Preview(showSystemUi = true)
 @Composable
+
 private fun PreviewSearchScreen() {
     Box(modifier = Modifier.fillMaxSize().padding(horizontal = 5.dp), Alignment.TopCenter) {
         CustomSearch()

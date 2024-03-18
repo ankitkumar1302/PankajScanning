@@ -2,6 +2,7 @@ package com.example.pankajscanning.screens
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -75,7 +76,6 @@ fun CustomSearch() {
 
 @Preview(showSystemUi = true)
 @Composable
-
 private fun PreviewSearchScreen() {
     Box(modifier = Modifier.fillMaxSize().padding(horizontal = 5.dp), Alignment.TopCenter) {
         CustomSearch()

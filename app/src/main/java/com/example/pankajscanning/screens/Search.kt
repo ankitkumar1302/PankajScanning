@@ -1,9 +1,8 @@
 package com.example.pankajscanning.screens
 
 import android.annotation.SuppressLint
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -28,56 +27,61 @@ import com.example.pankajscanning.ui.theme.onBackground
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CustomSearch() {
-    var query = remember {
-        mutableStateOf("")
-    }
-    var active = remember {
-        mutableStateOf(false)
-    }
-    SearchBar(
-        query = query.value,
-        onQueryChange = {
-            query.value = it
-        },
-        onSearch = { newQuery ->
-            println("Performing search on query: $newQuery)")
-        },
-        active = false,
-        onActiveChange = {
-            active = mutableStateOf(it)
-        },
+    Box(
         modifier = Modifier
-            .fillMaxWidth(),
-        placeholder = { Text(text = "Search") },
-        trailingIcon = {
-            Icon(
-                painter = painterResource(id = R.drawable.ic_close),
-                contentDescription = "Close"
-            )
-        },
-        leadingIcon = {
-            Icon(
-                painter = painterResource(id = R.drawable.ic_search),
-                contentDescription = "Search",
-                tint = Color.White
-            )
-        },
-        shadowElevation = 5.dp,
-        colors = SearchBarDefaults.colors(
-            onBackground,
-        ),
-        shape = RoundedCornerShape(30.dp),
-        tonalElevation = 2.dp
+            .fillMaxWidth()
+            .padding(), Alignment.TopCenter
     ) {
+        val query = remember {
+            mutableStateOf("")
+        }
+        val active = remember {
+            mutableStateOf(false)
+        }
+        SearchBar(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 10.dp),
+            query = query.value,
+            onQueryChange = {
+                query.value = it
+            },
+            onSearch = { newQuery ->
+                println("Performing search on query: $newQuery)")
+            },
+            active = active.value,
+            onActiveChange = {
+                active.value = true
+            },
+            placeholder = { Text(text = "Search") },
+            trailingIcon = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_close),
+                    contentDescription = "Close"
+                )
+            },
+            leadingIcon = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_search),
+                    contentDescription = "Search",
+                    tint = Color.White
+                )
+            },
+            shadowElevation = 5.dp,
+            colors = SearchBarDefaults.colors(
+                onBackground,
+            ),
+            shape = RoundedCornerShape(30.dp),
+            tonalElevation = 5.dp,
+        ) {
 
+        }
     }
 }
 
 
-@Preview(showSystemUi = true)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun PreviewSearchScreen() {
-    Box(modifier = Modifier.fillMaxSize().padding(horizontal = 5.dp), Alignment.TopCenter) {
-        CustomSearch()
-    }
+    CustomSearch()
 }

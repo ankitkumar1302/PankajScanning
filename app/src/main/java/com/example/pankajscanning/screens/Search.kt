@@ -2,6 +2,7 @@ package com.example.pankajscanning.screens
 
 import android.annotation.SuppressLint
 import android.content.res.Configuration
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -60,7 +61,7 @@ fun CustomSearch() {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_close),
                     contentDescription = "Close",
-                    modifier = Modifier.clip(CircleShape)
+                    modifier = Modifier.clip(CircleShape).clickable { query.value = "" }
                 )
             },
             leadingIcon = {

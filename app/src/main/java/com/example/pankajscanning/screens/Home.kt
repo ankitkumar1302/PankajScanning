@@ -79,6 +79,7 @@ fun HomeScreen() {
             .background(background),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        CustomSearch()
         Box(
             modifier = Modifier.wrapContentSize()
         ) {
@@ -105,7 +106,8 @@ fun HomeScreen() {
                                 fraction = 1f - pageOffset.coerceIn(0f, 1f)
                             )
                         },
-                    elevation = CardDefaults.cardElevation(5.dp),
+                    elevation = CardDefaults.cardElevation(10.dp),
+
                 ) {
                     Image(
 //                        painter = painterResource(id = images[page]),
@@ -184,11 +186,11 @@ fun HomeScreen() {
             modifier = Modifier
                 .align(Alignment.Start)
                 .padding(start = 17.dp, top = 10.dp),
-            fontSize = 20.sp,
+            fontSize = 18.sp,
             style = Typography.titleLarge,
             color = Color.White
         )
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(15.dp))
         Box(
             modifier = Modifier
                 .fillMaxWidth()

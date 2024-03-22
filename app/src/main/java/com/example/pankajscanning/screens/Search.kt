@@ -6,6 +6,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -61,7 +62,9 @@ fun CustomSearch() {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_close),
                     contentDescription = "Close",
-                    modifier = Modifier.clip(CircleShape).clickable { query.value = "" }
+                    modifier = Modifier
+                        .clip(CircleShape).padding(2.dp).size(30.dp)
+                        .clickable { query.value = "" }
                 )
             },
             leadingIcon = {
@@ -82,7 +85,13 @@ fun CustomSearch() {
         }
     }
 }
+/*
 
+    TODO 1.-> Align the UI of search component in the home Screen.
+    TODO 2.-> Have to add the functionality of the search component.
+    TODO 3.-> See on the topAppBar ,When click in the HomeScreen directed to SearchScreen.
+
+ */
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable

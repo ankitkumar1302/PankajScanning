@@ -21,8 +21,10 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowLeft
-import androidx.compose.material.icons.filled.KeyboardArrowRight
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -37,7 +39,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.modifier.modifierLocalMapOf
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -49,7 +50,7 @@ import com.example.pankajscanning.ui.theme.BlueAccent
 import com.example.pankajscanning.ui.theme.LightBlueAccent
 import com.example.pankajscanning.ui.theme.Typography
 import com.example.pankajscanning.ui.theme.background
-import com.example.pankajscanning.views.SearchAppBar
+import com.example.pankajscanning.views.CustomSearch
 import com.example.pankajscanning.views.ServicesList
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -85,7 +86,7 @@ fun HomeScreen() {
         ) {
             HorizontalPager(
                 modifier = Modifier
-                    .padding(top = 15.dp, bottom = 15.dp)
+                    .padding(top = 12.dp, bottom = 12.dp)
                     .wrapContentSize(),
                 state = pagerState,
                 contentPadding = PaddingValues(horizontal = 17.dp),
@@ -108,7 +109,7 @@ fun HomeScreen() {
                         },
                     elevation = CardDefaults.cardElevation(10.dp),
 
-                ) {
+                    ) {
                     Image(
 //                        painter = painterResource(id = images[page]),
                         painter = painterResource(id = sliderImagesList[page].imageResId),
@@ -134,7 +135,8 @@ fun HomeScreen() {
                     .clip(CircleShape)
             ) {
                 Icon(
-                    imageVector = Icons.Filled.KeyboardArrowRight, contentDescription = "",
+                    imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                    contentDescription = "",
                     modifier = Modifier.fillMaxSize(),
                     tint = Color.LightGray
                 )
@@ -155,7 +157,8 @@ fun HomeScreen() {
                     .clip(CircleShape)
             ) {
                 Icon(
-                    imageVector = Icons.Filled.KeyboardArrowLeft, contentDescription = "",
+                    imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
+                    contentDescription = "",
                     modifier = Modifier.fillMaxSize(),
                     tint = Color.LightGray
                 )
@@ -181,15 +184,38 @@ fun HomeScreen() {
                 )
             }
         }
-        Text(
-            text = stringResource(id = R.string.our_services),
-            modifier = Modifier
-                .align(Alignment.Start)
-                .padding(start = 17.dp, top = 10.dp),
-            fontSize = 18.sp,
-            style = Typography.titleLarge,
-            color = Color.White
-        )
+
+
+        Row(
+            modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text(
+                text = stringResource(id = R.string.our_services),
+                modifier = Modifier
+                    .padding(start = 17.dp, top = 10.dp)
+                    .align(Alignment.CenterVertically),
+                fontSize = 18.sp,
+                style = Typography.titleLarge,
+                color = Color.White
+            )
+            Button(
+                onClick = { },
+                modifier = Modifier
+                    .clip(CircleShape)
+                    .padding(end = 3.dp),
+                colors = ButtonDefaults.buttonColors(
+                    Color.Transparent,
+                    contentColor = LightBlueAccent
+                ),
+            ) {
+                Text(
+                    text = stringResource(id = R.string.see_all),
+                    fontSize = 14.sp,
+                    style = Typography.bodyLarge,
+                    color = BlueAccent
+                )
+            }
+        }
         Spacer(modifier = Modifier.height(15.dp))
         Box(
             modifier = Modifier

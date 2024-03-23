@@ -11,7 +11,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.pankajscanning.screens.CartScreen
-import com.example.pankajscanning.screens.CustomSearch
 import com.example.pankajscanning.screens.FaqScreen
 import com.example.pankajscanning.screens.HomeScreen
 import com.example.pankajscanning.screens.LocationScreen
@@ -19,6 +18,7 @@ import com.example.pankajscanning.screens.MyOrdersScreen
 import com.example.pankajscanning.screens.MySubscriptionsScreen
 import com.example.pankajscanning.screens.ProfileScreen
 import com.example.pankajscanning.screens.ReportAnIssueScreen
+import com.example.pankajscanning.screens.SearchScreen
 import com.example.pankajscanning.screens.SettingsScreen
 import com.example.pankajscanning.screens.WalletScreen
 import com.example.pankajscanning.screens.WellnessScreen
@@ -45,7 +45,7 @@ fun NavHostApp(
             HomeScreen()
         }
         composable(Screen.Search.route) {
-            CustomSearch()
+            SearchScreen()
         }
         composable(Screen.CartScreen.route) {
             CartScreen()

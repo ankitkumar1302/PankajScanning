@@ -91,11 +91,23 @@ fun AppContent() {
                         },
                         onOpenDrawer = {
                             scope.launch { drawerState.open() }
-                        })
+                        },
+                        currentDestination = navBackStackEntry
+                    )
                 },
                 bottomBar =
                 {
-                    BottomNavigationBar(items = bottomNav, navController = navController) {
+                    BottomNavigationBar(
+                        items = bottomNav,
+                        navController = navController
+                    ) { screen ->
+                        if (screen == Screen.Search) {
+                            navController.navigate(screen.route) {
+                                popUpTo(navController.graph.findStartDestination().id) {
+                                    saveState = true
+                                }
+                            }
+                        }
                     }
                 },
             ) { innerPadding ->

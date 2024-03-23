@@ -28,40 +28,48 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavBackStackEntry
 import com.example.pankajscanning.R
+import com.example.pankajscanning.Screen
 import com.example.pankajscanning.ui.theme.Typography
 import com.example.pankajscanning.ui.theme.onBackground
 import com.example.pankajscanning.ui.theme.primaryTextColor
 import com.example.pankajscanning.ui.theme.secondaryBackground
 import com.example.pankajscanning.ui.theme.secondaryTextColor
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "UnrememberedMutableInteractionSource")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeTopBar(
 //    avatarModel: String,
     onOpenCart: () -> Unit,
-    onOpenDrawer: () -> Unit
+    onOpenDrawer: () -> Unit,
+    currentDestination: NavBackStackEntry?
 ) {
-    Row(
-        modifier = Modifier
-            .background(secondaryBackground)
-            .padding(8.dp)
-            .fillMaxWidth()
-            .height(56.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
-    ) {
+    if (currentDestination?.destination?.route == Screen.Search.route) {
+        CustomSearch()
+    } else {
 
-        Box(
+        Row(
             modifier = Modifier
-                .weight(1f)
-                .padding(10.dp)
-                .clickable(
-                    interactionSource = MutableInteractionSource(),
-                    indication = rememberRipple(bounded = false)
-                ) { onOpenDrawer() },
+                .background(secondaryBackground)
+                .padding(8.dp)
+                .fillMaxWidth()
+                .height(56.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
+
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(10.dp)
+                    .clickable(
+                        interactionSource = MutableInteractionSource(),
+                        indication = rememberRipple(bounded = false)
+                    ) { onOpenDrawer() },
+
+                ) {
 
 //            Icon(
 //                painterResource(id = R.drawable.ic_menu),
@@ -73,16 +81,14 @@ fun HomeTopBar(
 //                tint = primaryTextColor
 //            )
 
-            Image(
-                painter = painterResource(id = R.drawable.man),
-                contentDescription = null,
-                modifier = Modifier
-                    .clip(CircleShape)
-                    .requiredSize(40.dp)
-                    .align(Alignment.Center)
-            )
-
-
+                Image(
+                    painter = painterResource(id = R.drawable.man),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .clip(CircleShape)
+                        .requiredSize(40.dp)
+                        .align(Alignment.Center)
+                )
 //            val avatarModel ="https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png"
 //            AsyncImage(
 //                modifier = Modifier
@@ -93,44 +99,45 @@ fun HomeTopBar(
 //                contentDescription = null,
 //                contentScale = ContentScale.Crop
 //            )
-        }
+            }
 
-        Row(
-            modifier = Modifier
-                .weight(4f)
-                .height(44.dp)
-                .background(onBackground, RoundedCornerShape(50)),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            Text(
-                text = "Pankaj Scanning & " +
-                        "Pathology " +
-                        "Research Center",
-                fontSize = Typography.bodyLarge.fontSize,
-                fontWeight = Typography.bodyLarge.fontWeight,
-                color = secondaryTextColor, textAlign = TextAlign.Center,
-                modifier = Modifier.padding(horizontal = 4.dp)
-            )
-        }
-        Box(
-            modifier = Modifier
-                .weight(1f)
-                .padding(10.dp)
-                .clickable(
-                    interactionSource = MutableInteractionSource(),
-                    indication = rememberRipple(bounded = false)
-                )
-                { onOpenCart() },
-        ) {
-            Icon(
+            Row(
                 modifier = Modifier
-                    .requiredSize(30.dp)
-                    .align(Alignment.Center),
-                imageVector = Icons.Filled.ShoppingCart,
-                contentDescription = null,
-                tint = primaryTextColor,
-            )
+                    .weight(4f)
+                    .height(44.dp)
+                    .background(onBackground, RoundedCornerShape(50)),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Text(
+                    text = "Pankaj Scanning & " +
+                            "Pathology " +
+                            "Research Center",
+                    fontSize = Typography.bodyLarge.fontSize,
+                    fontWeight = Typography.bodyLarge.fontWeight,
+                    color = secondaryTextColor, textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(horizontal = 4.dp)
+                )
+            }
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(10.dp)
+                    .clickable(
+                        interactionSource = MutableInteractionSource(),
+                        indication = rememberRipple(bounded = false)
+                    )
+                    { onOpenCart() },
+            ) {
+                Icon(
+                    modifier = Modifier
+                        .requiredSize(30.dp)
+                        .align(Alignment.Center),
+                    imageVector = Icons.Filled.ShoppingCart,
+                    contentDescription = null,
+                    tint = primaryTextColor,
+                )
+            }
         }
     }
 }
@@ -138,6 +145,5 @@ fun HomeTopBar(
 @Preview
 @Composable
 fun DefaultPreview() {
-    HomeTopBar(onOpenCart = {}) {
-    }
+    HomeTopBar(onOpenCart = {}, onOpenDrawer = {}, currentDestination = null)
 }

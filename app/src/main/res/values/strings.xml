@@ -30,5 +30,7 @@
     <string name="wallet">Wallet</string>
     <string name="our_services">Our Services</string>
     <string name="location">Location</string>
+    <string name="see_all">See All</string>
+
 
 </resources>

@@ -90,8 +90,8 @@ fun CustomSearch() {
 /*
 
     TODO 1.-> Align the UI of search component in the home Screen.
-    TODO 2.-> Have to add the functionality of the search component.
-    TODO 3.-> See on the topAppBar ,When click in the HomeScreen directed to SearchScreen.
+    TODO 2.-> Add the functionality of the search component.
+
 
  */
 

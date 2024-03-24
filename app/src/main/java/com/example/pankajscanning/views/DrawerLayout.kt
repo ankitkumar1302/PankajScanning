@@ -41,12 +41,9 @@ import androidx.navigation.NavHostController
 import com.example.pankajscanning.R
 import com.example.pankajscanning.Screen
 import com.example.pankajscanning.ui.theme.Dark
-import com.example.pankajscanning.ui.theme.Soft
 import com.example.pankajscanning.ui.theme.Typography
 import com.example.pankajscanning.ui.theme.White
-import com.example.pankajscanning.ui.theme.background
 import com.example.pankajscanning.ui.theme.onBackground
-import com.example.pankajscanning.ui.theme.secondaryBackground
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -121,10 +118,7 @@ fun DrawerLayout(
                     painter = painterResource(id = R.drawable.logo),
                     contentDescription = null,
 //                    contentScale = ContentScale.Crop,
-
-
                 )
-
 //                AsyncImage(
 //                    modifier = Modifier
 //                        .padding(start = 16.dp)

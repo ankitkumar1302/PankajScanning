@@ -49,7 +49,6 @@ fun HomeTopBar(
     if (currentDestination?.destination?.route == Screen.Search.route) {
         CustomSearch()
     } else {
-
         Row(
             modifier = Modifier
                 .background(secondaryBackground)
@@ -68,9 +67,7 @@ fun HomeTopBar(
                         interactionSource = MutableInteractionSource(),
                         indication = rememberRipple(bounded = false)
                     ) { onOpenDrawer() },
-
-                ) {
-
+            ) {
 //            Icon(
 //                painterResource(id = R.drawable.ic_menu),
 ////                imageVector = Icons.Filled.,
@@ -80,7 +77,6 @@ fun HomeTopBar(
 //                    .requiredSize(35.dp),
 //                tint = primaryTextColor
 //            )
-
                 Image(
                     painter = painterResource(id = R.drawable.man),
                     contentDescription = null,
@@ -100,7 +96,6 @@ fun HomeTopBar(
 //                contentScale = ContentScale.Crop
 //            )
             }
-
             Row(
                 modifier = Modifier
                     .weight(4f)

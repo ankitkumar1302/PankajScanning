@@ -10,6 +10,7 @@ import com.example.pankajscanning.R
 
 @Composable
 fun CartScreen() {
+
     Column(modifier = Modifier.fillMaxSize()) {
         Text(text = stringResource(id = R.string.cart))
     }

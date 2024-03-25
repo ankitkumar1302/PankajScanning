@@ -19,6 +19,7 @@ import com.example.pankajscanning.screens.MySubscriptionsScreen
 import com.example.pankajscanning.screens.ProfileScreen
 import com.example.pankajscanning.screens.ReportAnIssueScreen
 import com.example.pankajscanning.screens.SearchScreen
+import com.example.pankajscanning.screens.ServiceScreen
 import com.example.pankajscanning.screens.SettingsScreen
 import com.example.pankajscanning.screens.WalletScreen
 import com.example.pankajscanning.screens.WellnessScreen
@@ -42,7 +43,7 @@ fun NavHostApp(
         exitTransition = { fadeOut() }
     ) {
         composable(Screen.Home.route) {
-            HomeScreen()
+            HomeScreen(navController)
         }
         composable(Screen.Search.route) {
             SearchScreen()
@@ -77,6 +78,9 @@ fun NavHostApp(
         composable(Screen.Profile.route) {
             ProfileScreen()
         }
+        composable(Screen.Service.route) {
+            ServiceScreen()
+        }
     }
 }
 
@@ -101,5 +105,6 @@ sealed class Screen(
     object Wallet : Screen("wallet", R.string.wallet, R.drawable.ic_wallet)
     object Location : Screen("location", R.string.location, R.drawable.ic_location)
     object Profile : Screen("profile", R.string.profile, R.drawable.ic_profile)
+    object Service : Screen("service", R.string.service, R.drawable.ic_service)
 }
 

@@ -44,6 +44,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.pankajscanning.R
 import com.example.pankajscanning.models.sliderImages
 import com.example.pankajscanning.ui.theme.BlueAccent
@@ -58,7 +60,7 @@ import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController) {
     val sliderImagesList = sliderImages
     val pagerState = rememberPagerState(
         initialPage = 0,
@@ -184,8 +186,6 @@ fun HomeScreen() {
                 )
             }
         }
-
-
         Row(
             modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
         ) {
@@ -222,7 +222,7 @@ fun HomeScreen() {
                 .fillMaxWidth()
                 .wrapContentHeight()
         ) {
-            ServicesList(onClick = {})
+            ServicesList(navController)
         }
     }
 }
@@ -230,7 +230,7 @@ fun HomeScreen() {
 @Composable
 @Preview
 fun HomeScreenPreview() {
-    HomeScreen()
+    HomeScreen(navController = rememberNavController())
 }
 
 

@@ -27,11 +27,14 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.example.pankajscanning.R
+import com.example.pankajscanning.Screen
 import com.example.pankajscanning.models.servicesList
 import com.example.pankajscanning.ui.theme.Typography
 
 @Composable
-fun ServicesList(onClick: () -> Unit) {
+fun ServicesList(navController: NavController) {
     LazyRow(
         modifier = Modifier
             .padding(),
@@ -39,18 +42,22 @@ fun ServicesList(onClick: () -> Unit) {
         contentPadding = PaddingValues(horizontal = 10.dp)
     ) {
         items(servicesList) { service ->
-            ServiceCard(title = service.title, image = service.image)
+            ServiceCard(title = service.title, image = service.image, onClick = {
+                navController.navigate(
+                    Screen.Service.route
+                )
+            })
         }
     }
 }
 
 @Composable
-fun ServiceCard(title: String, image: Int) {
+fun ServiceCard(title: String, image: Int, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .width(135.dp)
-            .clip(shape = RoundedCornerShape(12.dp))
-            .clickable { },
+            .clip(shape = RoundedCornerShape(12.dp)).clickable { onClick() },
+//            .clickable {onClick = onClick},
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(
             containerColor = Color(0xFF252836),
@@ -85,8 +92,52 @@ fun ServiceCard(title: String, image: Int) {
     }
 }
 
-@Preview(showBackground = true)
 @Composable
-private fun PreviewService() {
-    ServicesList {}
+fun ServiceCardForServiceScreen(image: Int) {
+    Card(
+        modifier = Modifier
+            .width(195.dp)
+            .clip(shape = RoundedCornerShape(12.dp))
+            .clickable { },
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = Color(0xFF252836),
+            contentColor = Color(0xFF000000)
+        ),
+        elevation = CardDefaults.cardElevation(5.dp),
+    ) {
+        Column {
+            Box(modifier = Modifier.height(280.dp)) {
+                Image(
+                    painter = painterResource(id = image), contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.fillMaxSize()
+                )
+            }
+        }
+    }
 }
+
+
+//@Preview(showBackground = true)
+//@Composable
+//private fun PreviewService() {
+//    ServicesList {}
+//}
+//
+//@Preview
+//@Composable
+//private fun PreviewServiceCard() {
+//    ServiceCard(
+//        title = "Pathology", image = R.drawable.pathology
+//    )
+//}
+
+@Preview
+@Composable
+private fun PreviewServiceCardForServiceScreen() {
+    ServiceCardForServiceScreen(R.drawable.pathology)
+}
+
+
+

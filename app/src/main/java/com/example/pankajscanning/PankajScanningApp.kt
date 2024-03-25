@@ -61,7 +61,7 @@ fun AppContent() {
     val currentRoute = navBackStackEntry?.destination?.route
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
-    var isScrolling by remember { mutableStateOf(true) }
+    val isScrolling by remember { mutableStateOf(true) }
 
     ModalNavigationDrawer(
         gesturesEnabled = true,
@@ -81,30 +81,34 @@ fun AppContent() {
             Scaffold(
                 modifier = Modifier.fillMaxSize(),
                 topBar = {
-                    HomeTopBar(
-                        onOpenCart = {
-                            navController.navigate(Screen.CartScreen.route) {
-                                popUpTo(navController.graph.findStartDestination().id) {
-                                    saveState = true
+                    if (isVisible(currentRoute, isScrolling)) {
+                        HomeTopBar(
+                            onOpenCart = {
+                                navController.navigate(Screen.CartScreen.route) {
+                                    popUpTo(navController.graph.findStartDestination().id) {
+                                        saveState = true
+                                    }
                                 }
-                            }
-                        },
-                        onOpenDrawer = {
-                            scope.launch { drawerState.open() }
-                        },
-                        currentDestination = navBackStackEntry
-                    )
+                            },
+                            onOpenDrawer = {
+                                scope.launch { drawerState.open() }
+                            },
+                            currentDestination = navBackStackEntry
+                        )
+                    }
                 },
                 bottomBar =
                 {
-                    BottomNavigationBar(
-                        items = bottomNav,
-                        navController = navController
-                    ) { screen ->
-                        if (screen == Screen.Search) {
-                            navController.navigate(screen.route) {
-                                popUpTo(navController.graph.findStartDestination().id) {
-                                    saveState = true
+                    if (isVisible(currentRoute, isScrolling)) {
+                        BottomNavigationBar(
+                            items = bottomNav,
+                            navController = navController
+                        ) { screen ->
+                            if (screen == Screen.Search) {
+                                navController.navigate(screen.route) {
+                                    popUpTo(navController.graph.findStartDestination().id) {
+                                        saveState = true
+                                    }
                                 }
                             }
                         }
@@ -125,7 +129,7 @@ fun isVisible(
     currentRoute: String?,
     isScrolling: Boolean
 ): Boolean {
-    val fullScreens = listOf(Screen.Settings, Screen.Search)
+    val fullScreens = listOf(Screen.Service)
     return if (fullScreens.any { currentRoute?.startsWith(it.route) == true }) {
         false
     } else {

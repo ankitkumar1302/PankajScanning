@@ -35,9 +35,10 @@ val DarkishGray = Color(0xFF1E2023)
 //    surface = Dark
 //)
 
-val background = Color(0xFF201E2C)
+val background = Color(0xFF1F1D2B)
 val onBackground = Color(0xFF252836)
 val secondaryBackground = Color(0xFF181923)
 val onSecondaryBackground = Color(0xFF6F687A)
 val primaryTextColor = Color(0xFFE0E1DD)
 val secondaryTextColor = Color(0xFFA5A5A2)
+

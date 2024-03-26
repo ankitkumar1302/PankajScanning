@@ -16,7 +16,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.view.WindowCompat
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -26,9 +28,17 @@ import com.example.pankajscanning.views.DrawerLayout
 import com.example.pankajscanning.views.HomeTopBar
 import kotlinx.coroutines.launch
 
+
 @Composable
 fun PankajScanningApp() {
+
+    // I want to change the status bar color
+
+
+
     PankajScanningTheme {
+
+
         Surface(modifier = Modifier.fillMaxSize()) {
             AppContent()
         }
@@ -82,6 +92,7 @@ fun AppContent() {
                 topBar = {
                     if (isVisible(currentRoute, isScrolling)) {
                         HomeTopBar(
+
                             onOpenCart = {
                                 navController.navigate(Screen.CartScreen.route) {
                                     popUpTo(navController.graph.findStartDestination().id) {
@@ -92,7 +103,7 @@ fun AppContent() {
                             onOpenDrawer = {
                                 scope.launch { drawerState.open() }
                             },
-                            currentDestination = navBackStackEntry
+                            currentDestination = navBackStackEntry,
                         )
                     }
                 },

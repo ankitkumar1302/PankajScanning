@@ -43,13 +43,6 @@ fun ProfileScreen() {
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(
-                text = stringResource(id = R.string.profile),
-                fontSize = 18.sp,
-                style = MaterialTheme.typography.h6,
-                color = White,
-                modifier = Modifier.padding(top = 20.dp, bottom = 15.dp)
-            )
             Box {
                 Card(
                     modifier = Modifier
@@ -163,7 +156,7 @@ fun ProfileScreen() {
                                     contentDescription = "Profile",
                                     modifier = Modifier
                                         .padding(top = 25.dp, bottom = 5.dp, end = 5.dp)
-                                        .size(40.dp),
+                                        .size(30.dp),
                                 )
                                 Text(
                                     text = "Member",
@@ -195,7 +188,8 @@ fun ProfileScreen() {
 
                             Divider(
                                 color = White.copy(alpha = 0.1f),
-                                modifier = Modifier.padding(top = 10.dp, end = 30.dp
+                                modifier = Modifier.padding(
+                                    top = 10.dp, end = 30.dp
                                 )
                             )
 
@@ -206,11 +200,11 @@ fun ProfileScreen() {
                                     .padding(end = 15.dp)
                             ) {
                                 Image(
-                                    painter = painterResource(id = R.drawable.ic_member),
+                                    painter = painterResource(id = R.drawable.ic_change_password),
                                     contentDescription = "Profile",
                                     modifier = Modifier
                                         .padding(top = 25.dp, bottom = 5.dp, end = 5.dp)
-                                        .size(40.dp),
+                                        .size(30.dp),
                                 )
                                 Text(
                                     text = "Change Password",
@@ -237,10 +231,7 @@ fun ProfileScreen() {
                                         tint = BlueAccent
                                     )
                                 }
-
                             }
-
-
                         }
                     }
                 }

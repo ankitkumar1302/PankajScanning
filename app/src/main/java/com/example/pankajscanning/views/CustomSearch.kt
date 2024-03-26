@@ -2,6 +2,7 @@ package com.example.pankajscanning.views
 
 import android.annotation.SuppressLint
 import android.content.res.Configuration
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,7 +26,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pankajscanning.R
+import com.example.pankajscanning.ui.theme.Soft
+import com.example.pankajscanning.ui.theme.background
 import com.example.pankajscanning.ui.theme.onBackground
+
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -33,8 +37,8 @@ import com.example.pankajscanning.ui.theme.onBackground
 fun CustomSearch() {
     Box(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 2.dp), Alignment.TopCenter
+            .fillMaxWidth().background(background)
+            .padding(vertical = 5.dp), Alignment.TopCenter
     ) {
         val query = remember {
             mutableStateOf("")
@@ -45,7 +49,7 @@ fun CustomSearch() {
         SearchBar(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 10.dp),
+                .padding(horizontal = 20.dp),
             query = query.value,
             onQueryChange = {
                 query.value = it

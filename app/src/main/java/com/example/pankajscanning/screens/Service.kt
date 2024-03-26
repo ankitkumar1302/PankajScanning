@@ -1,6 +1,6 @@
 package com.example.pankajscanning.screens
 
-//noinspection UsingMaterialAndMaterial3Libraries
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -40,6 +40,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.pankajscanning.R
 import com.example.pankajscanning.ui.theme.Dark
 import com.example.pankajscanning.ui.theme.Orange
@@ -47,7 +49,7 @@ import com.example.pankajscanning.ui.theme.background
 import com.example.pankajscanning.views.ServiceCardForServiceScreen
 
 @Composable
-fun ServiceScreen() {
+fun ServiceScreen(navController: NavController) {
     Surface(
         modifier = Modifier
             .fillMaxSize()
@@ -82,18 +84,18 @@ fun ServiceScreen() {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 IconButton(
-                    onClick = { /*TODO*/ },
+                    onClick = { navController.navigateUp() },
                     modifier = Modifier
                         .padding(15.dp)
                         .background(
                             background.copy(alpha = 0.5f),
-                            shape = RoundedCornerShape(20.dp),
-                        ),
+                            shape = RoundedCornerShape(25.dp),
+                        )
                 ) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
                         contentDescription = null,
-                        Modifier.size(35.dp),
+                        Modifier.size(40.dp),
                         tint = Color.White
                     )
                 }
@@ -189,10 +191,16 @@ fun ServiceScreen() {
 
 }
 
+/*
+TODO 1 -> Create onClick for each services and navigate to the respective screen.
+TODO 2 -> Create splash screen and Login/Register screen.
+ */
+
+
 @Preview()
 @Composable
 private fun PreviewService() {
-    ServiceScreen()
+    ServiceScreen(navController = rememberNavController())
 }
 
 

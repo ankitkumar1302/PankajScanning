@@ -79,7 +79,7 @@ fun NavHostApp(
             ProfileScreen()
         }
         composable(Screen.Service.route) {
-            ServiceScreen()
+            ServiceScreen(navController)
         }
     }
 }

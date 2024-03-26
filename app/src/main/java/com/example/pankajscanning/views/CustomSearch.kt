@@ -92,7 +92,6 @@ fun CustomSearch() {
     TODO 1.-> Align the UI of search component in the home Screen.
     TODO 2.-> Add the functionality of the search component.
 
-
  */
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)

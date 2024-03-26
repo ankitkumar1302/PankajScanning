@@ -56,8 +56,8 @@ fun ServiceCard(title: String, image: Int, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .width(135.dp)
-            .clip(shape = RoundedCornerShape(12.dp)).clickable { onClick() },
-//            .clickable {onClick = onClick},
+            .clip(shape = RoundedCornerShape(12.dp))
+            .clickable { onClick() },
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(
             containerColor = Color(0xFF252836),
@@ -82,11 +82,6 @@ fun ServiceCard(title: String, image: Int, onClick: () -> Unit) {
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
                 style = Typography.titleMedium
-                /*
-                 TODO -> Create onClick for each services and navigate to the respective screen.
-                 TODO -> Create splash screen and Login/Register screen.
-                 TODO ->  Create map screen where user can watch the location of the lab.
-                 */
             )
         }
     }

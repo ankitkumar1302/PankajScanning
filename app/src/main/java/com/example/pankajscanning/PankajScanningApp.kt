@@ -31,14 +31,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun PankajScanningApp() {
-
-    // I want to change the status bar color
-
-
-
     PankajScanningTheme {
-
-
         Surface(modifier = Modifier.fillMaxSize()) {
             AppContent()
         }

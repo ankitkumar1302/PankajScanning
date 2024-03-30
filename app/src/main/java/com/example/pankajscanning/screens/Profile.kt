@@ -424,8 +424,9 @@ fun ProfileScreen() {
                     backgroundColor = background
                 ),
                 modifier = Modifier
-                    .padding(top=15.dp, start = 20.dp,end =20.dp,bottom =20.dp)
-                    .fillMaxWidth().clip(RoundedCornerShape(25.dp))
+                    .padding(top = 15.dp, start = 20.dp, end = 20.dp, bottom = 20.dp)
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(25.dp))
                     .height(55.dp)
                     .border(
                         1.dp,
@@ -439,10 +440,7 @@ fun ProfileScreen() {
                     fontSize = 16.sp,
                     fontWeight = FontWeight.SemiBold
                 )
-
             }
-
-
         }
     }
 }

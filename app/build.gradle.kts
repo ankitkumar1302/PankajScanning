@@ -1,3 +1,5 @@
+import kotlinx.coroutines.CoroutineScope
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -38,6 +40,7 @@ android {
     }
     buildFeatures {
         compose = true
+
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
@@ -77,7 +80,15 @@ dependencies {
     // Foundation
     implementation("androidx.compose.foundation:foundation:1.6.4")
 
-    // google map
+//    Coroutine
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+
+//    // google map
+//    implementation ("com.google.maps.android:maps-compose:4.3.3")
+//
+//    // Maps SDK for Android
+//    implementation("com.google.android.gms:play-services-maps:18.2.0")
 
 }
 

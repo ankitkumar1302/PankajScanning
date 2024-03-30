@@ -26,6 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -36,7 +37,6 @@ import com.example.pankajscanning.ui.theme.Typography
 import com.example.pankajscanning.ui.theme.background
 import com.example.pankajscanning.ui.theme.onBackground
 import com.example.pankajscanning.ui.theme.primaryTextColor
-import com.example.pankajscanning.ui.theme.secondaryBackground
 import com.example.pankajscanning.ui.theme.secondaryTextColor
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "UnrememberedMutableInteractionSource")
@@ -52,9 +52,15 @@ fun HomeTopBar(
         Screen.Search.route -> {
             CustomSearch()
         }
+
         Screen.Profile.route -> {
-            ProfileTopBar()
+            CustomTopBar(stringResource(id = R.string.profile))
         }
+
+        Screen.Location.route -> {
+            CustomTopBar(stringResource(id = R.string.location))
+        }
+
         else -> {
             Surface(elevation = 4.dp) {
                 Row(

@@ -66,7 +66,7 @@ fun AppContent() {
     val isScrolling by remember { mutableStateOf(true) }
 
     ModalNavigationDrawer(
-        gesturesEnabled = true,
+        gesturesEnabled = isDrawerEnabled(currentRoute),
         drawerState = drawerState,
         drawerContent = {
             DrawerLayout(
@@ -139,6 +139,15 @@ fun isVisible(
         isScrolling
     }
 }
+
+fun isDrawerEnabled(currentRoute: String?): Boolean {
+    // List of routes where the drawer should be disabled
+    val routesWithDisabledDrawer = listOf(Screen.Location.route)
+    // If the current route is in the list, return false (drawer disabled)
+    // Otherwise, return true (drawer enabled)
+    return currentRoute !in routesWithDisabledDrawer
+}
+
 
 @Preview
 @Composable

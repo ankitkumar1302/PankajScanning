@@ -3,6 +3,8 @@ package com.example.pankajscanning.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -109,7 +111,7 @@ fun ProfileScreen() {
                                 Icon(
                                     painter = painterResource(id = R.drawable.ic_reprofile),
                                     contentDescription = "Re Edit Profile",
-                                    Modifier.size(30.dp),
+                                    Modifier.size(25.dp),
                                     tint = BlueAccent
                                 )
                             }
@@ -117,6 +119,7 @@ fun ProfileScreen() {
                     }
                 }
             }
+            // Account Block
             Box(modifier = Modifier.fillMaxWidth()) {
                 Card(
                     modifier = Modifier
@@ -137,9 +140,8 @@ fun ProfileScreen() {
                         Column(
                             modifier = Modifier
                                 .padding(
-                                    start = 30.dp,
-                                    top = 20.dp,
-                                    bottom = 20.dp
+                                    start = 20.dp,
+                                    bottom = 10.dp
                                 )
                         )
                         {
@@ -148,38 +150,36 @@ fun ProfileScreen() {
                                 color = White,
                                 fontWeight = FontWeight.SemiBold,
                                 fontSize = 18.sp,
-                                modifier = Modifier
+                                modifier = Modifier.padding(
+                                    top = 20.dp,
+                                )
                             )
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically,
+                            Row(verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.Center,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(end = 15.dp)
+                                    .padding(top = 10.dp, bottom = 5.dp, end = 15.dp)
+                                    .clip(RoundedCornerShape(4.dp))
+                                    .clickable { }
+
                             ) {
                                 Image(
                                     painter = painterResource(id = R.drawable.ic_member),
                                     contentDescription = "Profile",
                                     modifier = Modifier
-                                        .padding(top = 25.dp, bottom = 5.dp, end = 5.dp)
                                         .size(30.dp),
                                 )
                                 Text(
                                     text = "Member",
                                     color = White,
                                     fontSize = 16.sp,
-                                    modifier = Modifier
-                                        .padding(
-                                            top = 25.dp,
-                                            bottom = 5.dp,
-                                            start = 10.dp
-                                        ),
-                                    fontWeight = FontWeight.Normal
+                                    fontWeight = FontWeight.Normal,
+                                    modifier = Modifier.padding(start = 15.dp)
                                 )
                                 Spacer(modifier = Modifier.weight(1f))
                                 IconButton(
                                     onClick = { /*TODO*/ },
                                     modifier = Modifier
-                                        .padding(top = 22.dp, bottom = 5.dp, end = 10.dp)
                                 ) {
                                     Icon(
                                         imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
@@ -190,44 +190,39 @@ fun ProfileScreen() {
                                 }
 
                             }
-
                             Divider(
                                 color = White.copy(alpha = 0.1f),
                                 modifier = Modifier.padding(
-                                    top = 10.dp, end = 30.dp
+                                    end = 30.dp
                                 )
                             )
 
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically,
+                            Row(verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.Center,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(end = 15.dp)
+                                    .padding(top = 10.dp, bottom = 5.dp, end = 15.dp)
+                                    .clip(RoundedCornerShape(4.dp))
+                                    .clickable { }
+
                             ) {
                                 Image(
                                     painter = painterResource(id = R.drawable.ic_change_password),
                                     contentDescription = "Profile",
                                     modifier = Modifier
-                                        .padding(top = 25.dp, bottom = 5.dp, end = 5.dp)
                                         .size(30.dp),
                                 )
                                 Text(
                                     text = "Change Password",
                                     color = White,
                                     fontSize = 16.sp,
-                                    modifier = Modifier
-                                        .padding(
-                                            top = 25.dp,
-                                            bottom = 5.dp,
-                                            start = 10.dp
-                                        ),
-                                    fontWeight = FontWeight.Normal
+                                    fontWeight = FontWeight.Normal,
+                                    modifier = Modifier.padding(start = 15.dp)
                                 )
                                 Spacer(modifier = Modifier.weight(1f))
                                 IconButton(
                                     onClick = { /*TODO*/ },
                                     modifier = Modifier
-                                        .padding(top = 22.dp, bottom = 5.dp, end = 10.dp)
                                 ) {
                                     Icon(
                                         imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
@@ -236,12 +231,15 @@ fun ProfileScreen() {
                                         tint = BlueAccent
                                     )
                                 }
+
                             }
                         }
                     }
                 }
-
             }
+
+
+            // More Block
             Box(modifier = Modifier.fillMaxWidth()) {
                 Card(
                     modifier = Modifier
@@ -262,9 +260,8 @@ fun ProfileScreen() {
                         Column(
                             modifier = Modifier
                                 .padding(
-                                    start = 30.dp,
-                                    top = 20.dp,
-                                    bottom = 20.dp
+                                    start = 20.dp,
+                                    bottom = 10.dp
                                 )
                         )
                         {
@@ -273,38 +270,36 @@ fun ProfileScreen() {
                                 color = White,
                                 fontWeight = FontWeight.SemiBold,
                                 fontSize = 18.sp,
-                                modifier = Modifier
+                                modifier = Modifier.padding(
+                                    top = 20.dp,
+                                )
                             )
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically,
+                            Row(verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.Center,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(end = 15.dp)
+                                    .padding(top = 10.dp, bottom = 5.dp, end = 15.dp)
+                                    .clip(RoundedCornerShape(4.dp))
+                                    .clickable { }
+
                             ) {
                                 Image(
-                                    painter = painterResource(id = R.drawable.ic_member),
+                                    painter = painterResource(id = R.drawable.ic_profile),
                                     contentDescription = "Profile",
                                     modifier = Modifier
-                                        .padding(top = 25.dp, bottom = 5.dp, end = 5.dp)
                                         .size(30.dp),
                                 )
                                 Text(
                                     text = "Legal & Policies",
                                     color = White,
                                     fontSize = 16.sp,
-                                    modifier = Modifier
-                                        .padding(
-                                            top = 25.dp,
-                                            bottom = 5.dp,
-                                            start = 10.dp
-                                        ),
-                                    fontWeight = FontWeight.Normal
+                                    fontWeight = FontWeight.Normal,
+                                    modifier = Modifier.padding(start = 15.dp)
                                 )
                                 Spacer(modifier = Modifier.weight(1f))
                                 IconButton(
                                     onClick = { /*TODO*/ },
                                     modifier = Modifier
-                                        .padding(top = 22.dp, bottom = 5.dp, end = 10.dp)
                                 ) {
                                     Icon(
                                         imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
@@ -315,45 +310,39 @@ fun ProfileScreen() {
                                 }
 
                             }
-
                             Divider(
                                 color = White.copy(alpha = 0.1f),
                                 modifier = Modifier.padding(
-                                    top = 10.dp, end = 30.dp
+                                    end = 30.dp
                                 )
                             )
 
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically,
+                            Row(verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.Center,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(end = 15.dp)
+                                    .padding(top = 10.dp, bottom = 5.dp, end = 15.dp)
+                                    .clip(RoundedCornerShape(4.dp))
+                                    .clickable { }
+
                             ) {
                                 Image(
                                     painter = painterResource(id = R.drawable.ic_help_support),
                                     contentDescription = "Profile",
                                     modifier = Modifier
-                                        .padding(top = 25.dp, bottom = 5.dp, end = 5.dp)
                                         .size(25.dp),
-
-                                    )
+                                )
                                 Text(
-                                    text = "Help & Feedback",
+                                    text = "Change Password",
                                     color = White,
                                     fontSize = 16.sp,
-                                    modifier = Modifier
-                                        .padding(
-                                            top = 25.dp,
-                                            bottom = 5.dp,
-                                            start = 10.dp
-                                        ),
-                                    fontWeight = FontWeight.Normal
+                                    fontWeight = FontWeight.Normal,
+                                    modifier = Modifier.padding(start = 15.dp)
                                 )
                                 Spacer(modifier = Modifier.weight(1f))
                                 IconButton(
                                     onClick = { /*TODO*/ },
                                     modifier = Modifier
-                                        .padding(top = 22.dp, bottom = 5.dp, end = 10.dp)
                                 ) {
                                     Icon(
                                         imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
@@ -367,39 +356,36 @@ fun ProfileScreen() {
                             Divider(
                                 color = White.copy(alpha = 0.1f),
                                 modifier = Modifier.padding(
-                                    top = 10.dp, end = 30.dp
+                                    end = 30.dp
                                 )
                             )
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically,
+
+                            Row(verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.Center,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(end = 15.dp)
+                                    .padding(top = 10.dp, bottom = 5.dp, end = 15.dp)
+                                    .clip(RoundedCornerShape(4.dp))
+                                    .clickable { }
+
                             ) {
                                 Image(
                                     painter = painterResource(id = R.drawable.ic_about_us),
                                     contentDescription = "Profile",
                                     modifier = Modifier
-                                        .padding(top = 25.dp, bottom = 5.dp, end = 5.dp)
                                         .size(30.dp),
                                 )
                                 Text(
                                     text = "About Us",
                                     color = White,
                                     fontSize = 16.sp,
-                                    modifier = Modifier
-                                        .padding(
-                                            top = 25.dp,
-                                            bottom = 5.dp,
-                                            start = 10.dp
-                                        ),
-                                    fontWeight = FontWeight.Normal
+                                    fontWeight = FontWeight.Normal,
+                                    modifier = Modifier.padding(start = 15.dp)
                                 )
                                 Spacer(modifier = Modifier.weight(1f))
                                 IconButton(
                                     onClick = { /*TODO*/ },
                                     modifier = Modifier
-                                        .padding(top = 22.dp, bottom = 5.dp, end = 10.dp)
                                 ) {
                                     Icon(
                                         imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
@@ -410,14 +396,16 @@ fun ProfileScreen() {
                                 }
 
                             }
-
                         }
-
                     }
                 }
-
             }
+
+
             Spacer(modifier = Modifier.height(15.dp))
+
+
+
             Button(
                 onClick = { /*TODO*/ },
                 colors = ButtonDefaults.buttonColors(

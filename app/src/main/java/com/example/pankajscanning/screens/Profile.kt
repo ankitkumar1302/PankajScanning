@@ -424,7 +424,7 @@ fun ProfileScreen() {
                     backgroundColor = background
                 ),
                 modifier = Modifier
-                    .padding(top = 15.dp, start = 20.dp, end = 20.dp, bottom = 20.dp)
+                    .padding(top = 5.dp, start = 20.dp, end = 20.dp, bottom = 20.dp)
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(25.dp))
                     .height(55.dp)

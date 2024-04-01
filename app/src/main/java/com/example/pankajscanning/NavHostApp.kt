@@ -14,6 +14,7 @@ import com.example.pankajscanning.screens.CartScreen
 import com.example.pankajscanning.screens.FaqScreen
 import com.example.pankajscanning.screens.HomeScreen
 import com.example.pankajscanning.screens.LocationScreen
+import com.example.pankajscanning.screens.LoginScreen
 import com.example.pankajscanning.screens.MyOrdersScreen
 import com.example.pankajscanning.screens.MySubscriptionsScreen
 import com.example.pankajscanning.screens.ProfileScreen
@@ -81,6 +82,9 @@ fun NavHostApp(
         composable(Screen.Service.route) {
             ServiceScreen(navController)
         }
+        composable(Screen.Login.route) {
+            LoginScreen()
+        }
     }
 }
 
@@ -106,5 +110,8 @@ sealed class Screen(
     object Location : Screen("location", R.string.location, R.drawable.ic_location)
     object Profile : Screen("profile", R.string.profile, R.drawable.ic_profile)
     object Service : Screen("service", R.string.service, R.drawable.ic_service)
+
+
+    object Login : Screen("login", R.string.login, R.drawable.ic_lock)
 }
 

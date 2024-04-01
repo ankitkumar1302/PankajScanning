@@ -31,6 +31,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavBackStackEntry
+import androidx.navigation.compose.rememberNavController
 import com.example.pankajscanning.R
 import com.example.pankajscanning.Screen
 import com.example.pankajscanning.ui.theme.Typography
@@ -59,6 +60,10 @@ fun HomeTopBar(
 
         Screen.Location.route -> {
             CustomTopBar(stringResource(id = R.string.location))
+        }
+
+        Screen.Login.route -> {
+            TopAppBarWithBackButton(name = R.string.login.toString(), navController = rememberNavController() )
         }
 
         else -> {

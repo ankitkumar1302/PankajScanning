@@ -42,7 +42,6 @@ fun CustomTopBar(name: String) {
             )
         }
     }
-
 }
 
 @Preview

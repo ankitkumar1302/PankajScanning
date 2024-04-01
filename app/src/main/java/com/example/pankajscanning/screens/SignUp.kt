@@ -1,6 +1,8 @@
 package com.example.pankajscanning.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,7 +18,9 @@ import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Divider
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -25,11 +29,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pankajscanning.R
 import com.example.pankajscanning.ui.theme.Red
+import com.example.pankajscanning.ui.theme.White
 import com.example.pankajscanning.ui.theme.background
 
 @Composable
@@ -70,7 +76,7 @@ fun SignUpScreen() {
                 )
             }
             Spacer(modifier = Modifier.height(30.dp))
-            Row {
+            Row (verticalAlignment = Alignment.CenterVertically){
                 Text(
                     text = "I already have an account? ",
                     style = TextStyle(
@@ -86,29 +92,90 @@ fun SignUpScreen() {
                         color = Red,
                         letterSpacing = 0.12.sp,
                         fontWeight = FontWeight.Medium
-                    )
+                    ),
+                    modifier = Modifier
+                        .padding(2.dp)
+                        .clickable(
+                            interactionSource = remember { MutableInteractionSource() },
+                            indication = rememberRipple(bounded = true)
+                        ) {
+                            /*TODO*/
+                        }
                 )
             }
-            Spacer(modifier = Modifier.height(100.dp))
+            Spacer(modifier = Modifier.height(50.dp))
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
+                horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Divider(modifier = Modifier.weight(1f))
+                Divider(
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(start = 62.dp, end = 8.dp),
+                    color = White.copy(alpha = 0.1f)
+                )
                 Text(
                     text = "Or Sign up with",
                     style = TextStyle(
                         fontSize = 16.sp,
                         color = Color(0xFF92929D),
                         letterSpacing = 0.12.sp,
-                        fontStyle = FontStyle.Normal
+                        fontStyle = FontStyle.Normal,
+                        textAlign = TextAlign.Center
                     ),
                     modifier = Modifier.weight(1f)
                 )
-                Divider(modifier = Modifier.weight(1f))
+                Divider(
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(end = 62.dp, start = 8.dp),
+                    color = White.copy(alpha = 0.1f)
+                )
             }
+            Spacer(modifier = Modifier.height(40.dp))
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.ic_google),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(50.dp))
+                        .clickable(
+                            interactionSource = remember { MutableInteractionSource() },
+                            indication = rememberRipple(bounded = true)
+                        ) { /*TODO*/ }
+                )
+
+                Image(
+                    painter = painterResource(id = R.drawable.ic_apple),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .padding(horizontal = 24.dp)
+                        .clip(RoundedCornerShape(50.dp))
+                        .clickable(
+                            interactionSource = remember { MutableInteractionSource() },
+                            indication = rememberRipple(bounded = true)
+                        ) { /*TODO*/ }
+                )
+
+                Image(
+                    painter = painterResource(id = R.drawable.ic_facebook),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(50.dp))
+                        .clickable(
+                            interactionSource = remember { MutableInteractionSource() },
+                            indication = rememberRipple(bounded = true)
+                        ) { /*TODO*/ }
+                )
+
+            }
+
+
         }
     }
 

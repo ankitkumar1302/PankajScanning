@@ -31,6 +31,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.pankajscanning.R
 import com.example.pankajscanning.Screen
@@ -47,7 +48,8 @@ fun HomeTopBar(
 //    avatarModel: String,
     onOpenCart: () -> Unit,
     onOpenDrawer: () -> Unit,
-    currentDestination: NavBackStackEntry?
+    currentDestination: NavBackStackEntry?,
+    navController: NavHostController
 ) {
     when (currentDestination?.destination?.route) {
         Screen.Search.route -> {
@@ -62,8 +64,18 @@ fun HomeTopBar(
             CustomTopBar(stringResource(id = R.string.location))
         }
 
+        Screen.EditProfile.route -> {
+            TopAppBarWithBackButton(
+                stringResource(id = R.string.edit_profile),
+                navController = navController
+            )
+        }
+
         Screen.Login.route -> {
-            TopAppBarWithBackButton(name = R.string.login.toString(), navController = rememberNavController() )
+            TopAppBarWithBackButton(
+                name = stringResource(id = R.string.login),
+                navController = rememberNavController()
+            )
         }
 
         else -> {
@@ -161,5 +173,11 @@ fun HomeTopBar(
 @Preview
 @Composable
 fun DefaultPreview() {
-    HomeTopBar(onOpenCart = {}, onOpenDrawer = {}, currentDestination = null)
+    HomeTopBar(
+        onOpenCart = { /*TODO*/ },
+        onOpenDrawer = { /*TODO*/ },
+        currentDestination = null,
+        navController = rememberNavController()
+    )
+
 }

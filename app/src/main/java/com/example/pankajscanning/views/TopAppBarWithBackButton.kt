@@ -1,11 +1,13 @@
 package com.example.pankajscanning.views
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -27,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.pankajscanning.Screen
 import com.example.pankajscanning.ui.theme.background
 
 @Composable
@@ -35,11 +38,19 @@ fun TopAppBarWithBackButton(name: String, navController: NavController) {
     Surface(elevation = 4.dp, color = background) {
         Box {
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth().padding(8.dp)
+                    .height(56.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 IconButton(
-                    onClick = { navController.navigateUp() },
+                    onClick = {
+                        try {
+                            navController.navigate(Screen.Profile.route)
+                        } catch (e: Exception) {
+                            Log.e("Navigation", "Failed to navigate to profile screen", e)
+                        }
+                    },
                     modifier = Modifier
                         .padding(15.dp)
                         .background(

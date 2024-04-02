@@ -11,6 +11,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.pankajscanning.screens.CartScreen
+import com.example.pankajscanning.screens.EditProfileScreen
 import com.example.pankajscanning.screens.FaqScreen
 import com.example.pankajscanning.screens.HomeScreen
 import com.example.pankajscanning.screens.LocationScreen
@@ -77,13 +78,16 @@ fun NavHostApp(
             LocationScreen()
         }
         composable(Screen.Profile.route) {
-            ProfileScreen()
+            ProfileScreen(navController)
         }
         composable(Screen.Service.route) {
             ServiceScreen(navController)
         }
         composable(Screen.Login.route) {
             LoginScreen()
+        }
+        composable(Screen.EditProfile.route){
+            EditProfileScreen()
         }
     }
 }
@@ -110,8 +114,7 @@ sealed class Screen(
     object Location : Screen("location", R.string.location, R.drawable.ic_location)
     object Profile : Screen("profile", R.string.profile, R.drawable.ic_profile)
     object Service : Screen("service", R.string.service, R.drawable.ic_service)
-
-
     object Login : Screen("login", R.string.login, R.drawable.ic_lock)
+    object EditProfile:Screen("edit_profile",R.string.edit_profile,R.drawable.ic_profile)
 }
 

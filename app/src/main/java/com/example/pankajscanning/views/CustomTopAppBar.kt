@@ -40,6 +40,7 @@ fun CustomTopBar(name: String) {
                 color = White,
                 modifier = Modifier.padding(top = 20.dp, bottom = 15.dp)
             )
+            
         }
     }
 }

@@ -36,14 +36,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.pankajscanning.R
+import com.example.pankajscanning.Screen
 import com.example.pankajscanning.ui.theme.BlueAccent
 import com.example.pankajscanning.ui.theme.Red
 import com.example.pankajscanning.ui.theme.White
 import com.example.pankajscanning.ui.theme.background
 
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(navController: NavController) {
     Surface(modifier = Modifier.fillMaxSize(), color = background) {
         Column(
             modifier = Modifier
@@ -103,7 +106,11 @@ fun ProfileScreen() {
                             }
                             Spacer(modifier = Modifier.weight(1f))
                             IconButton(
-                                onClick = { /*TODO*/ },
+                                onClick = {
+                                    navController.navigate(
+                                        Screen.EditProfile.route//change to edit profile screen
+                                    )
+                                },
                                 modifier = Modifier
                                     .padding(5.dp)
 
@@ -436,5 +443,5 @@ fun ProfileScreen() {
 @Preview
 @Composable
 private fun PreviewProfileScreen() {
-    ProfileScreen()
+    ProfileScreen(navController = rememberNavController())
 }

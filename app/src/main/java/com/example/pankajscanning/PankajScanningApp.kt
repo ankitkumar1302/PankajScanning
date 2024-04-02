@@ -96,7 +96,7 @@ fun AppContent() {
                             onOpenDrawer = {
                                 scope.launch { drawerState.open() }
                             },
-                            currentDestination = navBackStackEntry,
+                            currentDestination = navBackStackEntry, navController = navController
                         )
                     }
                 },

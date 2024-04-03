@@ -100,7 +100,7 @@ fun LoginScreen() {
                     cursorColor = BlueAccent,  // Set the color of the cursor
                     focusedBorderColor = BlueAccent,  // Set the color of the border when the text field is focused
                     unfocusedBorderColor = White.copy(alpha = .5f),  // Set the color of the border when the text field is not focused
-                ),
+                    ),
 
                 )
             OutlinedTextField(

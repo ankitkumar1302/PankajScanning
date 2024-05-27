@@ -35,19 +35,24 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pankajscanning.R
 import com.example.pankajscanning.ui.theme.BlueAccent
+import com.example.pankajscanning.ui.theme.LightBlueAccent
 import com.example.pankajscanning.ui.theme.White
 import com.example.pankajscanning.ui.theme.background
 
 @Composable
 fun EditProfileScreen() {
     var text by remember { mutableStateOf("") }
+    val emailAddress by remember { mutableStateOf("") }
+    val password by remember { mutableStateOf("") }
+    val phoneNumber by remember { mutableStateOf("") }
     Surface(modifier = Modifier.fillMaxSize(), color = background) {
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .fillMaxSize()
                 .verticalScroll(
                     rememberScrollState()
                 )
-                .fillMaxSize()
         ) {
             Spacer(modifier = Modifier.height(30.dp))
             Image(
@@ -111,7 +116,7 @@ fun EditProfileScreen() {
                 modifier = Modifier
                     .padding(top = 15.dp, start = 20.dp, end = 20.dp)
                     .fillMaxWidth(),
-                value = text,
+                value = emailAddress,
                 onValueChange = { newText -> text = newText },
                 label = {
                     Text(
@@ -136,7 +141,7 @@ fun EditProfileScreen() {
                 modifier = Modifier
                     .padding(top = 15.dp, start = 20.dp, end = 20.dp)
                     .fillMaxWidth(),
-                value = text,
+                value = password,
                 onValueChange = { newText -> text = newText },
                 label = {
                     Text(
@@ -161,7 +166,7 @@ fun EditProfileScreen() {
                 modifier = Modifier
                     .padding(top = 15.dp, start = 20.dp, end = 20.dp)
                     .fillMaxWidth(),
-                value = text,
+                value = phoneNumber,
                 onValueChange = { newText -> text = newText },
                 label = {
                     Text(
@@ -180,8 +185,9 @@ fun EditProfileScreen() {
                     cursorColor = BlueAccent,  // Set the color of the cursor
                     focusedBorderColor = BlueAccent,  // Set the color of the border when the text field is focused
                     unfocusedBorderColor = White.copy(alpha = .5f),  // Set the color of the border when the text field is not focused
+                ),
+
                 )
-            )
             //Button
             Button(
                 modifier = Modifier
@@ -190,7 +196,7 @@ fun EditProfileScreen() {
                     .size(56.dp)
                     .clip(RoundedCornerShape(50.dp)),
                 colors = ButtonDefaults.buttonColors(
-                    backgroundColor = BlueAccent,
+                    backgroundColor = LightBlueAccent,
                 ),
                 onClick = { /*TODO*/ }
             ) {

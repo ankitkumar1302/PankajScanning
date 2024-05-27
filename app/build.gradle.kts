@@ -1,5 +1,3 @@
-import kotlinx.coroutines.CoroutineScope
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -54,10 +52,10 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-    implementation("androidx.activity:activity-compose:1.8.2")
-    implementation(platform("androidx.compose:compose-bom:2024.03.00"))
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.0")
+    implementation("androidx.activity:activity-compose:1.9.0")
+    implementation(platform("androidx.compose:compose-bom:2024.05.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
@@ -67,28 +65,24 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2024.03.00"))
+    androidTestImplementation(platform("androidx.compose:compose-bom:2024.05.00"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     // Compose Material
-    implementation("androidx.compose.material:material-icons-extended:1.6.4")
-    implementation("androidx.compose.material:material:1.6.4")
+    implementation("androidx.compose.material:material-icons-extended:1.6.7")
+    implementation("androidx.compose.material:material:1.6.7")
     implementation("io.coil-kt:coil-compose:2.5.0")
 
     // Foundation
-    implementation("androidx.compose.foundation:foundation:1.6.4")
+    implementation("androidx.compose.foundation:foundation:1.6.7")
 
 //    Coroutine
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
+    implementation("androidx.compose.ui:ui:1.6.7")
 
-//    // google map
-//    implementation ("com.google.maps.android:maps-compose:4.3.3")
-//
-//    // Maps SDK for Android
-//    implementation("com.google.android.gms:play-services-maps:18.2.0")
 
 }
 

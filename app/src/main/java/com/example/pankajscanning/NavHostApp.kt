@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -30,7 +31,7 @@ import com.example.pankajscanning.screens.WellnessScreen
 fun NavHostApp(
     modifier: Modifier,
     navController: NavHostController,
-//    innerPaddings: PaddingValues,
+    innerPaddings: PaddingValues,
     startDestination: String = Screen.Home.route,
 //    onShowBottomSheet: () -> Unit,
 //    onRepost: () -> Unit,

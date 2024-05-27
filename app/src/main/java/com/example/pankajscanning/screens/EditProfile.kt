@@ -3,13 +3,17 @@ package com.example.pankajscanning.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
@@ -26,10 +30,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -42,18 +51,28 @@ import com.example.pankajscanning.ui.theme.background
 @Composable
 fun EditProfileScreen() {
     var text by remember { mutableStateOf("") }
-    val emailAddress by remember { mutableStateOf("") }
-    val password by remember { mutableStateOf("") }
-    val phoneNumber by remember { mutableStateOf("") }
-    Surface(modifier = Modifier.fillMaxSize(), color = background) {
+    var emailAddress by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+    var phoneNumber by remember { mutableStateOf("") }
+    val focusRequesters = remember { List(4) { FocusRequester() } }
+    val scrollState = rememberScrollState()
+
+    Surface(
+        modifier = Modifier
+            .fillMaxSize()
+            .fillMaxHeight()
+            .imePadding(), color = background
+    ) {
+
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(
-                    rememberScrollState()
-                )
+                .fillMaxHeight()
+                .verticalScroll(scrollState)
+
         ) {
+
             Spacer(modifier = Modifier.height(30.dp))
             Image(
                 painter = painterResource(id = R.drawable.man),
@@ -65,7 +84,6 @@ fun EditProfileScreen() {
                         spotColor = Color(0x0F000000),
                         ambientColor = Color(0x0F000000)
                     )
-
             )
             Text(
                 text = "Tiffany",
@@ -89,10 +107,12 @@ fun EditProfileScreen() {
             Spacer(modifier = Modifier.height(30.dp))
             OutlinedTextField(
                 modifier = Modifier
+                    .focusRequester(focusRequesters[0])
                     .padding(top = 15.dp, start = 20.dp, end = 20.dp)
                     .fillMaxWidth(),
                 value = text,
                 onValueChange = { newText -> text = newText },
+                maxLines = 1,
                 label = {
                     Text(
                         text = "Full Name",
@@ -102,6 +122,7 @@ fun EditProfileScreen() {
                             color = White.copy(alpha = .5f),
                             letterSpacing = 0.12.sp,
                         ),
+                        maxLines = 1
                     )
                 },
                 shape = RoundedCornerShape(50.dp),
@@ -110,14 +131,23 @@ fun EditProfileScreen() {
                     cursorColor = BlueAccent,  // Set the color of the cursor
                     focusedBorderColor = BlueAccent,  // Set the color of the border when the text field is focused
                     unfocusedBorderColor = White.copy(alpha = .5f),  // Set the color of the border when the text field is not focused
-                )
+                ),
+                keyboardOptions = KeyboardOptions(
+                    imeAction = ImeAction.Next,
+                    keyboardType = KeyboardType.Text
+                ),
+                keyboardActions = KeyboardActions(onNext = {
+                    focusRequesters[1].requestFocus()
+                }),
             )
             OutlinedTextField(
                 modifier = Modifier
+                    .focusRequester(focusRequesters[1])
                     .padding(top = 15.dp, start = 20.dp, end = 20.dp)
                     .fillMaxWidth(),
                 value = emailAddress,
-                onValueChange = { newText -> text = newText },
+                onValueChange = { newText -> emailAddress = newText },
+                maxLines = 1,
                 label = {
                     Text(
                         text = "Email Address",
@@ -135,14 +165,21 @@ fun EditProfileScreen() {
                     cursorColor = BlueAccent,  // Set the color of the cursor
                     focusedBorderColor = BlueAccent,  // Set the color of the border when the text field is focused
                     unfocusedBorderColor = White.copy(alpha = .5f),  // Set the color of the border when the text field is not focused
-                )
+                ),
+                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
+                keyboardActions = KeyboardActions(onNext = {
+                    focusRequesters[2].requestFocus()
+                }),
+
             )
             OutlinedTextField(
                 modifier = Modifier
+                    .focusRequester(focusRequesters[2])
                     .padding(top = 15.dp, start = 20.dp, end = 20.dp)
                     .fillMaxWidth(),
                 value = password,
-                onValueChange = { newText -> text = newText },
+                onValueChange = { newText -> password = newText },
+                maxLines = 1,
                 label = {
                     Text(
                         text = "Password",
@@ -160,14 +197,21 @@ fun EditProfileScreen() {
                     cursorColor = BlueAccent,  // Set the color of the cursor
                     focusedBorderColor = BlueAccent,  // Set the color of the border when the text field is focused
                     unfocusedBorderColor = White.copy(alpha = .5f),  // Set the color of the border when the text field is not focused
-                )
+                ),
+                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
+                keyboardActions = KeyboardActions(onNext = {
+                    focusRequesters[3].requestFocus()
+                }),
+                visualTransformation = PasswordVisualTransformation(),
             )
             OutlinedTextField(
                 modifier = Modifier
+                    .focusRequester(focusRequesters[3])
                     .padding(top = 15.dp, start = 20.dp, end = 20.dp)
                     .fillMaxWidth(),
                 value = phoneNumber,
-                onValueChange = { newText -> text = newText },
+                onValueChange = { newText -> phoneNumber = newText },
+                maxLines = 1,
                 label = {
                     Text(
                         text = "Phone Number",
@@ -178,6 +222,8 @@ fun EditProfileScreen() {
                             letterSpacing = 0.12.sp,
                         ),
                     )
+
+
                 },
                 shape = RoundedCornerShape(50.dp),
                 colors = TextFieldDefaults.outlinedTextFieldColors(
@@ -186,7 +232,13 @@ fun EditProfileScreen() {
                     focusedBorderColor = BlueAccent,  // Set the color of the border when the text field is focused
                     unfocusedBorderColor = White.copy(alpha = .5f),  // Set the color of the border when the text field is not focused
                 ),
-
+                keyboardOptions = KeyboardOptions(
+                    imeAction = ImeAction.Next,
+                    keyboardType = KeyboardType.Number
+                ),
+                keyboardActions = KeyboardActions(onNext = {
+                    focusRequesters[4].freeFocus()
+                }),
                 )
             //Button
             Button(
@@ -210,6 +262,7 @@ fun EditProfileScreen() {
                     )
                 )
             }
+            Spacer(modifier =Modifier.height(200.dp))
         }
     }
 }

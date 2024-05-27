@@ -142,7 +142,7 @@ fun isVisible(
 
 fun isDrawerEnabled(currentRoute: String?): Boolean {
     // List of routes where the drawer should be disabled
-    val routesWithDisabledDrawer = listOf(Screen.Location.route)
+    val routesWithDisabledDrawer = listOf(Screen.Location.route,Screen.EditProfile.route)
     // If the current route is in the list, return false (drawer disabled)
     // Otherwise, return true (drawer enabled)
     return currentRoute !in routesWithDisabledDrawer

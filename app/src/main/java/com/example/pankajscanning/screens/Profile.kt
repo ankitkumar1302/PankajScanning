@@ -59,6 +59,7 @@ fun ProfileScreen(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(10.dp)
+                        .clickable {}
                         .border(
                             0.5.dp,
                             shape = RoundedCornerShape(15.dp),
@@ -146,11 +147,13 @@ fun ProfileScreen(navController: NavController) {
                     ) {
                         Column(
                             modifier = Modifier
+                                .fillMaxWidth()
                                 .padding(
                                     start = 20.dp,
                                     bottom = 10.dp
-                                )
-                        )
+                                ),
+
+                            )
                         {
                             Text(
                                 text = "Account",
@@ -407,12 +410,7 @@ fun ProfileScreen(navController: NavController) {
                     }
                 }
             }
-
-
             Spacer(modifier = Modifier.height(15.dp))
-
-
-
             Button(
                 onClick = { /*TODO*/ },
                 colors = ButtonDefaults.buttonColors(

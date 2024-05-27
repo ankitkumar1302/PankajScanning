@@ -60,6 +60,7 @@ fun EditProfileScreen() {
                         spotColor = Color(0x0F000000),
                         ambientColor = Color(0x0F000000)
                     )
+
             )
             Text(
                 text = "Tiffany",

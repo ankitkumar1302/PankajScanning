@@ -1,18 +1,16 @@
 package com.example.pankajscanning.screens
 
 import android.annotation.SuppressLint
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 @SuppressLint("SetJavaScriptEnabled")
 @Composable

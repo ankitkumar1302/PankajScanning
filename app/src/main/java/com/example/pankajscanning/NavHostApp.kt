@@ -4,7 +4,6 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -31,7 +30,7 @@ import com.example.pankajscanning.screens.WellnessScreen
 fun NavHostApp(
     modifier: Modifier,
     navController: NavHostController,
-    innerPaddings: PaddingValues,
+//    innerPaddings: PaddingValues,
     startDestination: String = Screen.Home.route,
 //    onShowBottomSheet: () -> Unit,
 //    onRepost: () -> Unit,
@@ -86,7 +85,7 @@ fun NavHostApp(
         composable(Screen.Login.route) {
             LoginScreen()
         }
-        composable(Screen.EditProfile.route){
+        composable(Screen.EditProfile.route) {
             EditProfileScreen()
         }
     }
@@ -115,6 +114,6 @@ sealed class Screen(
     object Profile : Screen("profile", R.string.profile, R.drawable.ic_profile)
     object Service : Screen("service", R.string.service, R.drawable.ic_service)
     object Login : Screen("login", R.string.login, R.drawable.ic_lock)
-    object EditProfile:Screen("edit_profile",R.string.edit_profile,R.drawable.ic_profile)
+    object EditProfile : Screen("edit_profile", R.string.edit_profile, R.drawable.ic_profile)
 }
 
